@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deep Dive - General Manager</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#dcefdc;color:white}
+.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}
+.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url("background.jpg") center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.logo{max-width:220px;margin:0 auto 30px}
+.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}
+h1{font-size:46px;margin:10px 0}
+h2{border-bottom:2px solid white;padding-bottom:10px}
+h3{margin-top:25px}
+input[type=text]{width:100%;padding:12px;margin:8px 0 18px;border:0;border-radius:6px;font-size:16px;box-sizing:border-box}
+textarea{width:100%;min-height:180px;padding:15px;font-size:16px;font-family:Arial,sans-serif;border:0;border-radius:8px;box-sizing:border-box;resize:vertical;background:white;color:#222}
+.item{display:flex;gap:12px;background:#1f5c3d;margin:8px 0;padding:12px;border-radius:8px}
+.item input{transform:scale(1.3)}
+button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px 0 0;border-radius:8px;font-weight:bold;cursor:pointer}
+.result{font-size:48px;font-weight:bold}
+@media print{button{display:none}.page{min-height:auto}input[type=text],textarea{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+
+<section class="page front">
+<img src="logo.png" class="logo" alt="Logo">
+<h1>DEEP DIVE</h1>
+<h2>GENERAL MANAGER</h2>
+<div class="card">
+<h2>What is a Deep Dive?</h2>
+<p>A Deep Dive is a broken down job description, line by line, that tells you everything that your job role is responsible for. At any point during your career, you can check out all the aspects of your role to make sure you’re an expert before preparing to move onto the next role.</p>
+</div>
+<div class="card">
+<h2>How to use the Deep Dive</h2>
+<p>This can work as either a snapshot or working document. Print, read and either tick ✓, or number each line. Spend some time with your manager to gauge how many of these areas you are already a champion in, and what you need to do next to fine tune other areas so you can really excel.</p>
+</div>
+</section>
+
+<section class="page">
+<h2>Basic Details</h2>
+<div class="card">
+<label>Name</label><input type="text">
+<label>Role</label><input type="text" value="General Manager">
+<label>Site</label><input type="text">
+<label>Line Manager</label><input type="text">
+</div>
+</section>
+
+<section class="page">
+<h2>Section 1 – All About Safety</h2>
+<div id="section1"></div>
+</section>
+
+<section class="page">
+<h2>Section 2 – All About The Guest, Service & Quality</h2>
+<div id="section2"></div>
+</section>
+
+<section class="page">
+<h2>Section 3 – The Practical Skills</h2>
+<div id="section3"></div>
+</section>
+
+<section class="page">
+<h2>Section 4 – All About Pizza Pilgrims</h2>
+<div id="section4"></div>
+</section>
+
+<section class="page">
+<h2>Section 5 – All About Business</h2>
+<div id="section5"></div>
+</section>
+
+<section class="page">
+<h2>Completion Summary</h2>
+<div class="card">
+<p><strong>Total completion:</strong></p>
+<div class="result" id="score">0%</div>
+<button onclick="calculate()">Calculate Score</button>
+<button onclick="window.print()">Print / Save as PDF</button>
+<button onclick="resetForm()">Reset</button>
+</div>
+
+<div class="card">
+<h2>Manager Comments</h2>
+<textarea placeholder="Strengths, observations and coaching comments..."></textarea>
+</div>
+
+<div class="card">
+<h2>Next Steps</h2>
+<textarea placeholder="Agreed actions, training priorities and follow-up dates..."></textarea>
+</div>
+</section>
+
+<script>
+const data = {
+section1: {
+"Level 3 Food Safety": [
+"Has successfully completed the Level 3 Food Safety qualification and can confidently answer questions relating to the Health & Safety System."
+],
+"Personal Licence Holder": [
+"Holds a valid Personal Licence and is authorised to oversee the sale of alcohol within the pizzeria."
+],
+"Site Audits": [
+"Carries out regular walk-arounds of the kitchen and restaurant to ensure they remain clean, safe and legally compliant.",
+"Takes full ownership of the Auditing Company System audits, communicating results, priorities and action plans with the management team and wider team.",
+"Understands audit scores in detail, delegates actions effectively and ensures all issues are resolved promptly.",
+"Ensures the pizzeria consistently delivers the highest operational standards in line with company policies, rectifying any shortcomings identified through internal audits, the Auditing Company System or the Health & Safety System."
+],
+"Labelling": [
+"Ensures daily checks of shelf lives and product labelling are completed.",
+"Coaches the team on correct procedures and identifies any falsified or extended shelf lives immediately."
+],
+"Temperature Controls": [
+"Regularly reviews compliance records within the Food Safety Monitoring System.",
+"Investigates and deals appropriately with any inaccurate or falsified temperature records."
+],
+"HACCP": [
+"Demonstrates expert knowledge of HACCP principles, food safety procedures and compliance recording."
+],
+"COSHH": [
+"Ensures all COSHH procedures are followed correctly.",
+"Ensures every team member is fully trained and compliant."
+],
+"Health & Safety": [
+"Ensures every new team member completes all required risk assessments during induction.",
+"Creates a culture where safety is prioritised across both FOH and BOH.",
+"Coaches managers and team members to prevent accidents and maintain excellent standards."
+],
+"Repairs & Maintenance": [
+"Reports, manages and follows through on all equipment and maintenance issues via the Maintenance Portal.",
+"Ensures the building is maintained to the highest possible standard inside and out.",
+"Builds effective relationships with maintenance engineers and contractors."
+],
+"Deliveries": [
+"Ensures the Head Chef and BOH team consistently check deliveries for quality, quantity and temperature.",
+"Works closely with suppliers, Partners and the Food Team to resolve any issues."
+],
+"Allergies": [
+"Demonstrates complete understanding of the allergy procedure from beginning to end.",
+"Ensures every member of the team confidently follows allergy procedures through training, coaching and due diligence."
+],
+"Pest Control": [
+"Reviews pest control reports and ensures all findings are actioned promptly.",
+"Communicates actions effectively with the management team and ensures preventative measures remain in place."
+],
+"Fire Safety": [
+"Demonstrates how to complete all daily and weekly fire safety checks and testing.",
+"Ensures every team member understands fire safety procedures, evacuation routes and assembly points.",
+"Conducts and records regular fire evacuation drills."
+],
+"Food Safety Monitoring System": [
+"Ensures all daily compliance checks are completed accurately and on time.",
+"Delegates responsibilities appropriately while maintaining overall accountability.",
+"Regularly reviews compliance records to protect both guests and team members."
+]
+},
+section2: {
+"Only as Good as Our Last Pizza": [
+"Creates a culture of excellence where every pizza and every guest experience reflects Pizza Pilgrims’ standards.",
+"Drives exceptional performance across both FOH and BOH every single shift."
+],
+"Be the Expert": [
+"Is the leading expert on every aspect of the menu, including food, drinks, wines, beers, cocktails and coffee.",
+"Shares knowledge through coaching and development.",
+"Plans ahead for menu launches, ensuring stock, training and tastings are delivered successfully across the whole team."
+],
+"Quality of Pizza": [
+"Ensures every pizza leaving the kitchen meets specification and quality expectations.",
+"Coaches managers and chefs to continually improve consistency and standards."
+],
+"Controlling the Pass / Service": [
+"Maintains excellent communication between kitchen and floor teams.",
+"Ensures food leaves the kitchen at the correct time, temperature and presentation standard.",
+"Creates calm, organised and efficient service under pressure."
+],
+"Pre-Shift": [
+"Delivers engaging, inspiring and informative pre-shift meetings.",
+"Clearly communicates daily priorities, commercial goals and guest experience focuses.",
+"Motivates the team to deliver outstanding service every shift."
+],
+"Bookings Management": [
+"Oversees bookings to maximise covers while protecting guest experience.",
+"Uses booking data to optimise staffing, pacing and operational efficiency."
+],
+"Everyone is a Host": [
+"Ensures every guest receives an exceptional welcome.",
+"Creates a hospitality-first culture throughout the restaurant."
+],
+"Resolving Guest Complaints": [
+"Handles complex guest concerns professionally and confidently.",
+"Coaches managers to resolve complaints independently while protecting the guest experience."
+],
+"Super Kind Bombs!": [
+"Creates memorable guest experiences through thoughtful and unexpected acts of generosity.",
+"Encourages the whole team to recognise opportunities to delight guests."
+],
+"One Team, One Dream": [
+"Builds an engaged, motivated and high-performing team.",
+"Protects and develops the Pizza Pilgrims culture.",
+"Leads by example every day."
+],
+"Communication": [
+"Demonstrates exceptional communication across all levels of the business.",
+"Builds strong relationships with teams, support functions and external partners."
+]
+},
+section3: {
+"Communication": [
+"Adapts communication style to different audiences including guests, team members, senior leaders and external partners.",
+"Coaches others to become excellent communicators."
+],
+"Systems": [
+"Expert user of all operational systems including tills, card machines, booking platforms and Deliveroo.",
+"Ensures managers and team members are fully trained on all systems."
+],
+"Pizzeria Operations": [
+"Understands every operational aspect of the restaurant.",
+"Confidently supports every department whenever required.",
+"Maintains exceptional operational standards across every service."
+],
+"Drinks": [
+"Maintains expert knowledge of the drinks menu and specifications.",
+"Ensures consistent quality across all beverage preparation.",
+"Coaches the team to maintain premium presentation standards."
+],
+"Equipment": [
+"Ensures all equipment is used correctly, maintained and cleaned.",
+"Plans preventative maintenance and replacement where required."
+],
+"Keeping it Clean": [
+"Ensures all cleaning schedules and compliance tasks are completed through the Food Safety Monitoring System.",
+"Maintains exceptional standards of cleanliness throughout the restaurant.",
+"Leads by example in appearance, organisation and professionalism."
+]
+},
+section4: {
+"The Pilgrimage": [
+"Has expert knowledge of the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.",
+"Understands the founders’ vision and communicates it passionately to both guests and team members.",
+"Champions the company’s purpose, values, pillars and B Corp commitments in everything the restaurant does."
+],
+"The Product": [
+"Expert knowledge of dough, recipes, specifications and ingredient provenance.",
+"Ensures every menu item is delivered consistently.",
+"Acts as the ultimate product ambassador within the restaurant."
+],
+"The People": [
+"Understands every Pizza Base support function and how to utilise them effectively.",
+"Champions The Academy and develops future leaders through coaching, mentoring and succession planning."
+]
+},
+section5: {
+"The Business": [
+"Has a comprehensive understanding of every commercial KPI.",
+"Uses sales, labour, productivity, food cost, guest satisfaction and profitability data to make informed business decisions.",
+"Creates and delivers action plans to improve commercial performance.",
+"Holds managers accountable for achieving business objectives.",
+"Balances commercial success with outstanding hospitality and team engagement."
+],
+"Deliveroo": [
+"Understands every Deliveroo KPI.",
+"Uses reporting and trends to improve operational efficiency, guest satisfaction and sales performance."
+],
+"Reviews": [
+"Champions guest feedback across the restaurant.",
+"Monitors review performance, identifies trends and coaches the team to continually improve guest satisfaction.",
+"Uses guest feedback as a tool for continuous improvement and operational excellence."
+]
+}
+};
+
+function buildSection(sectionId){
+const container=document.getElementById(sectionId);
+const section=data[sectionId];
+for(const heading in section){
+const h=document.createElement("h3");
+h.textContent=heading;
+container.appendChild(h);
+section[heading].forEach(text=>{
+const div=document.createElement("div");
+div.className="item";
+div.innerHTML='<input type="checkbox" class="tick"><span>'+text+'</span>';
+container.appendChild(div);
+});
+}
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+const boxes=document.querySelectorAll(".tick");
+const checked=document.querySelectorAll(".tick:checked");
+const score=boxes.length?Math.round((checked.length/boxes.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetForm(){
+document.querySelectorAll("input").forEach(input=>{
+if(input.type==="checkbox"){input.checked=false}else{input.value=""}
+});
+document.querySelectorAll("textarea").forEach(area=>area.value="");
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calculate);
+</script>
+
+</body>
+</html>

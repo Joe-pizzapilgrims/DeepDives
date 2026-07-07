@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deep Dive - KP / Prep Chef</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#dcefdc;color:white}
+.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}
+.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url("background.jpg") center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.logo{max-width:220px;margin:0 auto 30px}
+.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}
+h1{font-size:46px;margin:10px 0}
+h2{border-bottom:2px solid white;padding-bottom:10px}
+h3{margin-top:25px}
+input[type=text]{width:100%;padding:12px;margin:8px 0 18px;border:0;border-radius:6px;font-size:16px;box-sizing:border-box}
+textarea{width:100%;min-height:180px;padding:15px;font-size:16px;font-family:Arial,sans-serif;border:0;border-radius:8px;box-sizing:border-box;resize:vertical;background:white;color:#222}
+.item{display:flex;gap:12px;background:#1f5c3d;margin:8px 0;padding:12px;border-radius:8px}
+.item input{transform:scale(1.3)}
+button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px 0 0;border-radius:8px;font-weight:bold;cursor:pointer}
+.result{font-size:48px;font-weight:bold}
+@media print{button{display:none}.page{min-height:auto}input[type=text],textarea{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+
+<section class="page front">
+<img src="logo.png" class="logo" alt="Logo">
+<h1>DEEP DIVE</h1>
+<h2>KP / PREP CHEF</h2>
+<div class="card">
+<h2>What is a Deep Dive?</h2>
+<p>A Deep Dive is a broken down job description, line by line, that tells you everything that your job role is responsible for. At any point during your career, you can check out all the aspects of your role to make sure you’re an expert before preparing to move onto the next role.</p>
+</div>
+<div class="card">
+<h2>How to use the Deep Dive</h2>
+<p>This can work as either a snapshot or working document. Print, read and either tick ✓, or number each line. Spend some time with your manager to gauge how many of these areas you are already a champion in, and what you need to do next to fine tune other areas so you can really excel.</p>
+</div>
+</section>
+
+<section class="page">
+<h2>Basic Details</h2>
+<div class="card">
+<label>Name</label><input type="text">
+<label>Role</label><input type="text" value="KP / Prep Chef">
+<label>Site</label><input type="text">
+<label>Line Manager</label><input type="text">
+</div>
+</section>
+
+<section class="page"><h2>Section 1 – All About Safety</h2><div id="section1"></div></section>
+<section class="page"><h2>Section 2 – All About Service & Quality</h2><div id="section2"></div></section>
+<section class="page"><h2>Section 3 – The Practical Skills</h2><div id="section3"></div></section>
+<section class="page"><h2>Section 4 – All About Pizza Pilgrims</h2><div id="section4"></div></section>
+<section class="page"><h2>Section 5 – All About Business</h2><div id="section5"></div></section>
+
+<section class="page">
+<h2>Completion Summary</h2>
+<div class="card">
+<p><strong>Total completion:</strong></p>
+<div class="result" id="score">0%</div>
+<button onclick="calculate()">Calculate Score</button>
+<button onclick="window.print()">Print / Save as PDF</button>
+<button onclick="resetForm()">Reset</button>
+</div>
+<div class="card"><h2>Manager Comments</h2><textarea placeholder="Strengths, observations and coaching comments..."></textarea></div>
+<div class="card"><h2>Next Steps</h2><textarea placeholder="Agreed actions, training priorities and follow-up dates..."></textarea></div>
+</section>
+
+<script>
+const data = {"section1": {"Level 1 & 2 Food Safety": ["Has completed the Level 1 & 2 Food Safety compliance courses in All Gravy and can confidently answer basic questions relating to the Health & Safety System."], "First Aid": ["Has completed the First Aid course in All Gravy."], "Labelling": ["Understands labelling requirements and shelf-life guidelines for all food products and prepared ingredients."], "HACCP": ["Demonstrates a good understanding of HACCP principles."], "COSHH": ["Demonstrates a good understanding of COSHH procedures."], "Health & Safety": ["Maintains awareness of safety in both the kitchen and restaurant at all times.", "Helps prevent accidents and reports any concerns to the line manager."], "Repairs & Maintenance": ["Reports equipment faults and maintenance issues promptly to the line manager."], "Deliveries": ["Ensures deliveries are checked, stored away carefully and organised efficiently."], "Allergies": ["Demonstrates a clear understanding of the allergy procedure from start to finish."], "Pest Control": ["Understands how to prevent pest activity.", "Reports any signs of pests immediately to the line manager."], "Fire Safety": ["Understands fire safety procedures, fire evacuation routes and assembly points."]}, "section2": {"Keeping it Clean": ["Keeps the preparation kitchen clean, tidy and organised at all times.", "Cleans as they go to prevent cross-contamination.", "Maintains an organised workstation that supports efficient service."], "Enjoy Your Shift": ["Brings a positive attitude to work and contributes to an enjoyable working environment."], "Service": ["Supports both BOH and FOH teams by ensuring they always have the ingredients, preparation and equipment needed for smooth service.", "Helps create consistently great guest experiences through excellent preparation."], "Getting Organised": ["Organises stockrooms, refrigerators and storage areas.", "Ensures all products are correctly labelled, rotated and stored according to Health & Safety standards."], "Getting Organised (Kitchen Readiness)": ["Always willing to reorganise preparation areas, replenish the line and improve kitchen organisation during busy periods.", "Supports team morale by keeping the kitchen running efficiently."], "Communication": ["Demonstrates positive working relationships with all Pizza Pilgrims colleagues."], "One Team, One Dream": ["Contributes to creating a positive team atmosphere.", "Protects and builds the Pizza Pilgrims culture."]}, "section3": {"Equipment": ["Has a thorough understanding of how to safely operate all kitchen equipment.", "Can demonstrate safe equipment use to other team members where required."], "Maintenance": ["Understands how to clean, maintain and care for all kitchen equipment correctly.", "Reports any faults immediately."], "Knife Skills": ["Demonstrates safe and efficient knife skills.", "Maintains knives safely and correctly."], "Food Preparation": ["Prepares all ingredients according to Pizza Pilgrims specifications.", "Produces consistently high-quality preparation.", "Understands correct portion sizes and presentation standards."], "Stock Rotation": ["Correctly follows FIFO (First In, First Out) procedures.", "Minimises waste through excellent stock management."], "Cleaning": ["Completes all daily, weekly and deep cleaning tasks to a high standard.", "Understands the importance of food hygiene and cleanliness."], "Food Safety Monitoring System": ["Completes required opening and closing checks.", "Supports senior colleagues with compliance recording where required."], "Time Management": ["Prioritises tasks effectively.", "Completes preparation in time for service.", "Remains calm and organised during busy periods."]}, "section4": {"The Pilgrimage": ["Understands the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.", "Knows who the founders are and understands the company’s purpose and values."], "The Product": ["Understands dough preparation, recipes and food specifications.", "Knows the stories behind the ingredients and why quality matters.", "Understands the preparation standards behind every menu item."], "The People": ["Understands the Pizza Base support teams.", "Knows how The Academy supports personal development and restaurant success."]}, "section5": {"The Business": ["Has a basic understanding of the restaurant’s commercial KPIs.", "Understands how good preparation reduces waste, improves speed of service and creates happier guests."], "Waste Control": ["Understands the importance of reducing food waste.", "Follows portion specifications and stock rotation procedures to protect profitability."], "Team Contribution": ["Understands how excellent preparation supports the success of the entire restaurant.", "Takes ownership of their role in helping Pizza Pilgrims deliver consistently outstanding food and service."]}};
+
+function buildSection(sectionId){
+const container=document.getElementById(sectionId);
+const section=data[sectionId];
+for(const heading in section){
+const h=document.createElement("h3");
+h.textContent=heading;
+container.appendChild(h);
+section[heading].forEach(text=>{
+const div=document.createElement("div");
+div.className="item";
+div.innerHTML='<input type="checkbox" class="tick"><span>'+text+'</span>';
+container.appendChild(div);
+});
+}
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+const boxes=document.querySelectorAll(".tick");
+const checked=document.querySelectorAll(".tick:checked");
+const score=boxes.length?Math.round((checked.length/boxes.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetForm(){
+document.querySelectorAll("input").forEach(input=>{if(input.type==="checkbox"){input.checked=false}else{input.value=""}});
+document.querySelectorAll("textarea").forEach(area=>area.value="");
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calculate);
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dives</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:white;
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
+    url("background.jpg") center/cover no-repeat fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.container{
+  width:90%;
+  max-width:900px;
+  padding:40px;
+}
+
+.logo{
+  max-width:220px;
+  margin-bottom:25px;
+}
+
+h1{
+  font-size:72px;
+  margin:10px 0 20px;
+  letter-spacing:3px;
+}
+
+p{
+  font-size:20px;
+  margin-bottom:35px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.button{
+  display:block;
+  background:#1f5c3d;
+  color:white;
+  text-decoration:none;
+  padding:20px;
+  border-radius:12px;
+  font-size:20px;
+  font-weight:bold;
+  border:2px solid white;
+  transition:.2s ease;
+}
+
+.button:hover{
+  background:white;
+  color:#123d2b;
+  transform:translateY(-2px);
+}
+
+.footer{
+  margin-top:35px;
+  font-size:14px;
+  opacity:.85;
+}
+
+@media(max-width:600px){
+  h1{font-size:46px}
+  .container{padding:25px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img src="logo.png" class="logo" alt="Logo">
+
+  <h1>DEEP DIVES</h1>
+  <p>Select a role to open the relevant Deep Dive.</p>
+
+  <div class="grid">
+    <a class="button" href="waiter.html">Waiter</a>
+    <a class="button" href="supervisor.html">Supervisor</a>
+    <a class="button" href="assistantmanager.html">Assistant Manager</a>
+    <a class="button" href="generalmanager.html">General Manager</a>
+    <a class="button" href="kp-prep-chef.html">KP / Prep Chef</a>
+    <a class="button" href="pizzachef.html">Pizza Chef</a>
+    <a class="button" href="Seniorchef.html">Senior Chef</a>
+    <a class="button" href="secondchef.html">Second Chef</a>
+    <a class="button" href="headchef.html">Head Chef</a>
+  </div>
+
+  <div class="footer">
+    Pizza Pilgrims Deep Dive Library
+  </div>
+</div>
+
+</body>
+</html>
