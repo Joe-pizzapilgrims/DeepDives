@@ -17,8 +17,101 @@ body{margin:0;font-family:Arial;background:#dcefdc;color:#fff}.page{min-height:1
 <section class='page'><h2>Section 5 – All About Business</h2><div id='section5'></div></section>
 <section class='page'><h2>Completion Summary</h2><div class='card'><div id='score' style='font-size:48px'>0%</div><button onclick='calc()'>Calculate</button><button onclick='window.print()'>Print / Save as PDF</button><button onclick='resetF()'>Reset</button></div><div class='card'><h2>Manager Comments</h2><textarea></textarea></div><div class='card'><h2>Next Steps</h2><textarea></textarea></div></section>
 <script>
-const data={"section1": {"Level 1 & 2 Food Safety": ["Compliance courses completed in All Gravy and has confidence in EHO questions."], "First Aid": ["Has completed First Aid course on All Gravy."], "Labelling": ["Daily checks on shelf lives and labelling on products stored in the FOH/Bar (like olives and garnishes), communicating any concerns with your line manager."], "HACCP": ["Demonstrates a good understanding."], "COSHH": ["Demonstrates a good understanding."], "Health & Safety": ["Aware of safety in the kitchen and on the floor at all times, monitoring and preventing accidents, reporting any concerns with your line manager."], "Repairs & Maintenance": ["Report any equipment and maintenance issues to your line manager."], "Deliveries": ["Ensures deliveries are put away carefully and efficiently."], "Allergies": ["Can demonstrate understanding of following the allergy procedure from start to finish using excellent communication and due diligence."], "Pest Control": ["Understands Pest Control – how to prevent pests and reports signs of activity to your line manager."], "Fire Safety": ["Understands fire safety practices, fire evacuation point and fire safety routes."], "Trail": ["Ensures opening and closing checklists are completed daily."]}, "section2": {"Only as good as our last Pizza": ["Takes pride and ownership of every pizza that comes from the pass to ensure it’s perfectly to spec.", "Understands how to use the Pizza Bibles to achieve this."], "Be the Expert": ["Understands and actively learns about Pizza Pilgrims, the menu and your pizzeria."], "Controlling the pass / service": ["Demonstrates co-ordination and communication of food coming out at the right time, right temperature, and to spec, ensuring it is delivered to the right table or Deliveroo driver.", "Has good communication with the kitchen team and FOH colleagues to ensure smooth service."], "Pre shift": ["Turns up on time for every pre-shift with a positive mentality to prepare for the shift ahead and supports their teammates."], "Everyone is a host": ["Ensures that everyone that walks through the door is welcomed in a friendly manner.", "Checks and seats bookings on our booking platform."], "Resolving guest complaints": ["Can demonstrate handling guest complaints or questions in a mature and reasonable manner, resolving the issue whilst ensuring the manager is informed."], "Super Kind Bombs!": ["Wants to go that extra mile for a regular guest, someone celebrating something special or someone you just think deserves it.", "Encourages these random acts of kindness with the team."], "One team, One dream": ["Contributes to building a great team vibe and maintains/builds the culture we are so proud of."], "Communication": ["Demonstrates good working relationships with all Pizza Pilgrims colleagues."]}, "section3": {"English": ["Can speak and understand written English."], "Communication": ["Adapts communication style to be able to connect with different types of guests."], "Systems": ["Understands how to use the tills correctly and efficiently.", "Understands how to use the card machines correctly and efficiently.", "Understands how to use the Deliveroo tablet correctly and knows the system that Deliveroo drivers need to follow."], "Pizzeria Orientation": ["Knows all table numbers, sections, flow of the pizzeria and back kitchen."], "Drinks": ["Knows how to build and present all drinks from the menu to spec.", "The perfect pour – knows how to pour a great pint of beer.", "Can change a keg safely and efficiently.", "Can carry trays of drinks safely and efficiently.", "Knows how to dispose of broken glass safely.", "Can open bottles of Pilgrims Fizz and our other wines correctly and safely."], "Equipment": ["Knows how to use and clean the coffee machine.", "Knows how to use and clean the dishwasher."], "Keeping it Clean": ["Understands and follows daily cleaning tasks set on Trail.", "Never walks past a problem and always takes pride in keeping the pizzeria looking its best.", "Is well presented with a clean and correct uniform at all times.", "Keeps on top of polishing glasses and cutlery throughout the shift."]}, "section4": {"The Pilgrimage": ["Knowledge of the original Pilgrimage and Pilgrimage 2.0.", "Knows our founders, who they are and what they do.", "Understands our company purpose, our pillars, B Corp and why we do what we do."], "The Product": ["Has a good understanding of our dough, specifications and pizza recipes.", "Has good knowledge of the provenance and stories of our ingredients.", "Drinks champion – understands our wines, cocktails, soft drinks, coffee and the specifications."], "The People": ["Knows our Pizza Base team, who they are and what support functions are available to help succeed in running our restaurants.", "Understands The Academy, the purpose it serves and how it can help your team and pizzeria succeed."]}, "section5": {"The Business": ["Has a basic understanding of what good looks like in terms of our commercial KPIs and how their role contributes by making guests happier so they keep coming back and we can sell more pizza."], "Deliveroo": ["Has a good understanding of our Deliveroo KPIs."], "The Reviews": ["Understands the importance of customer feedback, how many reviews we want each week and what a good score is."]}};
-for(const id in data){let c=document.getElementById(id);for(const h in data[id]){c.innerHTML+=`<h3>${h}</h3>`;data[id][h].forEach(t=>c.innerHTML+=`<div class="item"><input type="checkbox" class="tick"><span>${t}</span></div>`);}}
+const data = {
+"section1": {
+
+"Food Safety & Compliance": [
+"Compliance courses completed in All Gravy and has confidence in EHO questions.",
+"Has completed Clean, Safe and Legal course on All Gravy.",
+"Daily checks on shelf lives and labelling on products stored in the FOH/Bar (like olives and garnishes), communicating any concerns with your line manager.",
+"Demonstrates a good understanding of COSHH.",
+"Can demonstrate understanding of following the allergy procedure from start to finish using excellent communication and due diligence.",
+"Ensures opening and closing checklists are completed daily."
+],
+
+"Health & Safety": [
+"Aware of safety in the kitchen and on the floor at all times, monitoring and preventing accidents, reporting any concerns with your line manager.",
+"Understands Pest Control – how to prevent pests and reports signs of activity to your line manager.",
+"Understands fire safety practices, fire evacuation point and fire safety routes."
+],
+
+"Operations": [
+"Reports any equipment and maintenance issues to your line manager.",
+"Ensures deliveries are put away carefully and efficiently."
+]
+"section2": {
+
+"Guest Experience & Service": [
+"Takes pride and ownership of every pizza that comes from the pass to ensure it’s perfectly to spec.",
+"Understands how to use the Pizza Bibles to achieve this.",
+"Demonstrates co-ordination and communication of food coming out at the right time, right temperature and to specification, ensuring it is delivered to the correct table or Deliveroo driver.",
+"Has good communication with the kitchen team and FOH colleagues to ensure smooth service.",
+"Turns up on time for every pre-shift with a positive mentality to prepare for the shift ahead and supports teammates.",
+"Ensures that everyone who walks through the door is welcomed in a friendly manner.",
+"Checks and seats bookings using our booking platform.",
+"Can demonstrate handling guest complaints or questions in a mature and reasonable manner, resolving the issue whilst ensuring the manager is informed.",
+"Encourages the use of Super Kind Bombs with the guests."
+],
+
+"Teamwork & Communication": [
+"Contributes to building a great team atmosphere and maintains the culture we are so proud of.",
+"Demonstrates good working relationships with all Pizza Pilgrims colleagues."
+]
+"section3": {
+
+"Practical Skills": [
+"Can speak and understand written English.",
+"Adapts communication style to connect with different types of guests.",
+"Knows all table numbers, sections, the flow of the pizzeria and the back kitchen.",
+"Knows how to build and present all drinks from the menu to specification.",
+"Can pour a perfect pint of beer.",
+"Can change a keg safely and efficiently.",
+"Can carry trays of drinks safely and efficiently.",
+"Knows how to dispose of broken glass safely.",
+"Can open bottles of Pilgrims Fizz and other wines correctly and safely."
+],
+
+"Systems & Equipment": [
+"Understands how to use the tills correctly and efficiently.",
+"Understands how to use the card machines correctly and efficiently.",
+"Understands how to use the Deliveroo tablet correctly and follows the correct driver procedures.",
+"Knows how to use and clean the dishwasher."
+],
+
+"Standards": [
+"Never walks past a problem and always takes pride in keeping the pizzeria looking its best.",
+"Is well presented with a clean and correct uniform at all times.",
+"Keeps on top of polishing glasses and cutlery throughout the shift."
+]
+"section4": {
+
+"The Pizza Pilgrims Story": [
+"Knows the story of the original Pilgrimage and Pilgrimage 2.0.",
+"Knows our founders, who they are and what they do.",
+"Completed the First Five Shifts course on All Gravy.",
+"Understands our company purpose, our pillars, B Corp and why we do what we do."
+],
+
+"Product Knowledge": [
+"Has a good understanding of our dough, specifications and pizza recipes.",
+"Has good knowledge of the provenance and stories behind our ingredients.",
+"Understands our wines, cocktails, soft drinks, coffee and their specifications."
+],
+
+"Our People": [
+"Understands The Academy, the purpose it serves and how it can help your team and pizzeria succeed."
+]
+"section5": {
+
+"Commercial Awareness": [
+"Has a basic understanding of what good looks like in terms of our commercial KPIs and how their role contributes by making guests happier so they keep coming back and we can sell more pizza.",
+"Has a good understanding of our Deliveroo KPIs.",
+"Understands the importance of customer feedback, how many reviews we want each week and what a good review score is."
+]
+
+}
+},
+},for(const id in data){let c=document.getElementById(id);for(const h in data[id]){c.innerHTML+=`<h3>${h}</h3>`;data[id][h].forEach(t=>c.innerHTML+=`<div class="item"><input type="checkbox" class="tick"><span>${t}</span></div>`);}}
 function calc(){let b=document.querySelectorAll('.tick');let c=document.querySelectorAll('.tick:checked');document.getElementById('score').textContent=Math.round((c.length/b.length)*100)+'%';}
 function resetF(){document.querySelectorAll('input').forEach(i=>i.type=='checkbox'?i.checked=false:i.value='');document.querySelectorAll('textarea').forEach(t=>t.value='');document.getElementById('score').textContent='0%';}
 document.addEventListener('change',calc);
