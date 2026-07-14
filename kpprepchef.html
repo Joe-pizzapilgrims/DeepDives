@@ -68,8 +68,83 @@ button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px
 </section>
 
 <script>
-const data = {"section1": {"Level 1 & 2 Food Safety": ["Has completed the Level 1 & 2 Food Safety compliance courses in All Gravy and can confidently answer basic questions relating to the Health & Safety System."], "First Aid": ["Has completed the First Aid course in All Gravy."], "Labelling": ["Understands labelling requirements and shelf-life guidelines for all food products and prepared ingredients."], "HACCP": ["Demonstrates a good understanding of HACCP principles."], "COSHH": ["Demonstrates a good understanding of COSHH procedures."], "Health & Safety": ["Maintains awareness of safety in both the kitchen and restaurant at all times.", "Helps prevent accidents and reports any concerns to the line manager."], "Repairs & Maintenance": ["Reports equipment faults and maintenance issues promptly to the line manager."], "Deliveries": ["Ensures deliveries are checked, stored away carefully and organised efficiently."], "Allergies": ["Demonstrates a clear understanding of the allergy procedure from start to finish."], "Pest Control": ["Understands how to prevent pest activity.", "Reports any signs of pests immediately to the line manager."], "Fire Safety": ["Understands fire safety procedures, fire evacuation routes and assembly points."]}, "section2": {"Keeping it Clean": ["Keeps the preparation kitchen clean, tidy and organised at all times.", "Cleans as they go to prevent cross-contamination.", "Maintains an organised workstation that supports efficient service."], "Enjoy Your Shift": ["Brings a positive attitude to work and contributes to an enjoyable working environment."], "Service": ["Supports both BOH and FOH teams by ensuring they always have the ingredients, preparation and equipment needed for smooth service.", "Helps create consistently great guest experiences through excellent preparation."], "Getting Organised": ["Organises stockrooms, refrigerators and storage areas.", "Ensures all products are correctly labelled, rotated and stored according to Health & Safety standards."], "Getting Organised (Kitchen Readiness)": ["Always willing to reorganise preparation areas, replenish the line and improve kitchen organisation during busy periods.", "Supports team morale by keeping the kitchen running efficiently."], "Communication": ["Demonstrates positive working relationships with all Pizza Pilgrims colleagues."], "One Team, One Dream": ["Contributes to creating a positive team atmosphere.", "Protects and builds the Pizza Pilgrims culture."]}, "section3": {"Equipment": ["Has a thorough understanding of how to safely operate all kitchen equipment.", "Can demonstrate safe equipment use to other team members where required."], "Maintenance": ["Understands how to clean, maintain and care for all kitchen equipment correctly.", "Reports any faults immediately."], "Knife Skills": ["Demonstrates safe and efficient knife skills.", "Maintains knives safely and correctly."], "Food Preparation": ["Prepares all ingredients according to Pizza Pilgrims specifications.", "Produces consistently high-quality preparation.", "Understands correct portion sizes and presentation standards."], "Stock Rotation": ["Correctly follows FIFO (First In, First Out) procedures.", "Minimises waste through excellent stock management."], "Cleaning": ["Completes all daily, weekly and deep cleaning tasks to a high standard.", "Understands the importance of food hygiene and cleanliness."], "Food Safety Monitoring System": ["Completes required opening and closing checks.", "Supports senior colleagues with compliance recording where required."], "Time Management": ["Prioritises tasks effectively.", "Completes preparation in time for service.", "Remains calm and organised during busy periods."]}, "section4": {"The Pilgrimage": ["Understands the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.", "Knows who the founders are and understands the company’s purpose and values."], "The Product": ["Understands dough preparation, recipes and food specifications.", "Knows the stories behind the ingredients and why quality matters.", "Understands the preparation standards behind every menu item."], "The People": ["Understands the Pizza Base support teams.", "Knows how The Academy supports personal development and restaurant success."]}, "section5": {"The Business": ["Has a basic understanding of the restaurant’s commercial KPIs.", "Understands how good preparation reduces waste, improves speed of service and creates happier guests."], "Waste Control": ["Understands the importance of reducing food waste.", "Follows portion specifications and stock rotation procedures to protect profitability."], "Team Contribution": ["Understands how excellent preparation supports the success of the entire restaurant.", "Takes ownership of their role in helping Pizza Pilgrims deliver consistently outstanding food and service."]}};
+<script>
+const data = {
+"section1": {
 
+"Food Safety & Compliance": [
+"Compliance courses completed in All Gravy and has confidence in EHO questions.",
+"Has completed Clean, Safe and Legal course on All Gravy.",
+"Daily checks on shelf lives and labelling on products stored in the Kitchen, communicating any concerns with your line manager.",
+"Demonstrates a good understanding of COSHH.",
+"Proficient in how to store allergen products in the kitchn.",
+"Ensures opening and closing checklists are completed daily."
+],
+
+"Health & Safety": [
+"Aware of safety in the kitchen at all times, monitoring and preventing accidents, reporting any concerns with your line manager.",
+"Understands Pest Control – how to prevent pests and reports signs of activity to your line manager.",
+"Understanding what great storage in the walk in fridge and dry store looks like.",
+"Understands fire safety practices, fire evacuation point and fire safety routes."
+],
+
+"Operations": [
+"Reports any equipment and maintenance issues to your line manager.",
+"Ensures deliveries are put away carefully and efficiently."
+]
+
+},
+
+"section2": {
+
+"Guest Experience & Service": [
+"Takes pride and ownership of every piece of prep that the chef assigns daily.",
+"Understands how to use the spec Bibles to achieve this.",
+"proficient in supporting the pizzeria and basic knowledge of how to build our sides & salads .",
+"Has good communication with the kitchen & floor team to ensure smooth service.",
+"Turns up on time for every shift with a positive mentality to prepare for the shift ahead and supports teammates.",
+],
+
+"Teamwork & Communication": [
+"Contributes to building a great team atmosphere and maintains the culture we are so proud of.",
+"Demonstrates good working relationships with all Pizza Pilgrims colleagues."
+]
+},
+
+"section3": {
+
+"Practical Skills": [
+"Can speak and understand written English.",
+"Able to support the FOH by restocking plates and cutlery in the pizzeria for use with the guests.",
+"Knows how to build and carry out all the batch and prep to specification.",
+"Knows how to dispose of broken glass safely.",
+"Can manage the KP area section during busy periods.",
+],
+
+"Standards": [
+"Never walks past a problem and always takes pride in keeping the pizzeria looking its best.",
+"Is well presented with a clean and correct uniform at all times.",
+"Keeps on top of the taste and KP area throughout the shift and closing."
+]
+},
+
+"section4": {
+
+"The Pizza Pilgrims Story": [
+"Knows the story of the original Pilgrimage.",
+"Knows our founders, who they are and what they do.",
+"Has completed the First Five Shifts course on All Gravy.",
+"Understands our company purpose, our pillars, B Corp and why we do what we do."
+]
+},
+
+"section5": {
+
+"Commercial Awareness": [
+"A basic understanding of how to manage waste and support the head chef in delivering a good food stock."
+]
+}
+};
 function buildSection(sectionId){
 const container=document.getElementById(sectionId);
 const section=data[sectionId];
