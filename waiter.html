@@ -39,6 +39,9 @@ const data = {
 "Reports any equipment and maintenance issues to your line manager.",
 "Ensures deliveries are put away carefully and efficiently."
 ]
+
+},
+
 "section2": {
 
 "Guest Experience & Service": [
@@ -50,13 +53,16 @@ const data = {
 "Ensures that everyone who walks through the door is welcomed in a friendly manner.",
 "Checks and seats bookings using our booking platform.",
 "Can demonstrate handling guest complaints or questions in a mature and reasonable manner, resolving the issue whilst ensuring the manager is informed.",
-"Encourages the use of Super Kind Bombs with the guests."
+"Encourages the use of Super Kind Bombs with guests."
 ],
 
 "Teamwork & Communication": [
 "Contributes to building a great team atmosphere and maintains the culture we are so proud of.",
 "Demonstrates good working relationships with all Pizza Pilgrims colleagues."
 ]
+
+},
+
 "section3": {
 
 "Practical Skills": [
@@ -83,12 +89,15 @@ const data = {
 "Is well presented with a clean and correct uniform at all times.",
 "Keeps on top of polishing glasses and cutlery throughout the shift."
 ]
+
+},
+
 "section4": {
 
 "The Pizza Pilgrims Story": [
 "Knows the story of the original Pilgrimage and Pilgrimage 2.0.",
 "Knows our founders, who they are and what they do.",
-"Completed the First Five Shifts course on All Gravy.",
+"Has completed the First Five Shifts course on All Gravy.",
 "Understands our company purpose, our pillars, B Corp and why we do what we do."
 ],
 
@@ -99,8 +108,11 @@ const data = {
 ],
 
 "Our People": [
-"Understands The Academy, the purpose it serves and how it can help your team and pizzeria succeed."
+"Understands The Academy, the purpose it serves and how it can help the team and pizzeria succeed."
 ]
+
+},
+
 "section5": {
 
 "Commercial Awareness": [
@@ -110,9 +122,39 @@ const data = {
 ]
 
 }
-},
-},for(const id in data){let c=document.getElementById(id);for(const h in data[id]){c.innerHTML+=`<h3>${h}</h3>`;data[id][h].forEach(t=>c.innerHTML+=`<div class="item"><input type="checkbox" class="tick"><span>${t}</span></div>`);}}
-function calc(){let b=document.querySelectorAll('.tick');let c=document.querySelectorAll('.tick:checked');document.getElementById('score').textContent=Math.round((c.length/b.length)*100)+'%';}
-function resetF(){document.querySelectorAll('input').forEach(i=>i.type=='checkbox'?i.checked=false:i.value='');document.querySelectorAll('textarea').forEach(t=>t.value='');document.getElementById('score').textContent='0%';}
-document.addEventListener('change',calc);
-</script></body></html>
+
+};
+
+for(const id in data){
+let c=document.getElementById(id);
+
+for(const h in data[id]){
+c.innerHTML+=`<h3>${h}</h3>`;
+
+data[id][h].forEach(t=>{
+c.innerHTML+=`<div class="item"><input type="checkbox" class="tick"><span>${t}</span></div>`;
+});
+}
+}
+
+function calc(){
+let b=document.querySelectorAll(".tick");
+let c=document.querySelectorAll(".tick:checked");
+let score=b.length?Math.round((c.length/b.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetF(){
+document.querySelectorAll("input").forEach(i=>{
+i.type==="checkbox"?i.checked=false:i.value="";
+});
+
+document.querySelectorAll("textarea").forEach(t=>{
+t.value="";
+});
+
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calc);
+</script>
