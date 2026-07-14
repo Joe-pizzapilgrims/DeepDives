@@ -68,8 +68,144 @@ button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px
 </section>
 
 <script>
-const data = {"section1": {"Level 2 Food Safety": ["Has completed the Level 2 Food Safety compliance course in All Gravy.", "Can confidently answer questions relating to the Health & Safety System."], "Site Audits": ["Carries out regular walk-arounds of the kitchen to ensure it is clean, safe and legally compliant.", "Takes ownership of the Auditing Company System audits, supporting the Head Chef by communicating results, priorities and actions with the BOH team.", "Understands audit scores and ensures all required actions are completed.", "Ensures the pizzeria consistently delivers the highest operational standards, taking immediate action to resolve any issues identified through internal audits, the Auditing Company System or the Health & Safety System."], "Labelling": ["Completes daily checks of shelf lives and product labelling.", "Coaches chefs where necessary and identifies any falsified or extended shelf lives."], "Temperature Controls": ["Ensures all temperature records are completed accurately.", "Investigates and addresses any incorrect or falsified records immediately."], "HACCP": ["Demonstrates a thorough understanding of HACCP principles, food safety procedures and compliance recording."], "COSHH": ["Understands COSHH requirements and ensures the BOH team are trained and compliant."], "Health & Safety": ["Ensures all new BOH team members complete risk assessments during induction.", "Promotes safe working practices throughout the kitchen.", "Coaches the team to reduce accidents and maintain excellent safety standards."], "Repairs & Maintenance": ["Reports equipment faults and maintenance issues promptly to the Head Chef or manager.", "Works effectively alongside maintenance engineers when required."], "Deliveries": ["Checks deliveries for quality, quantity and temperature.", "Communicates any concerns with senior colleagues, suppliers or the Food Team."], "Allergies": ["Demonstrates a full understanding of the allergy procedure from start to finish.", "Ensures the BOH team understand and confidently follow allergy procedures."], "Pest Control": ["Understands pest control procedures and how to prevent pest activity.", "Acts on findings from pest control reports and communicates actions with management and the BOH team."], "Fire Safety": ["Understands kitchen fire safety procedures, fire evacuation routes and assembly points."], "Food Safety Monitoring System": ["Ensures all daily compliance records are completed accurately.", "Delegates compliance tasks where appropriate.", "Helps maintain outstanding food safety standards across the kitchen."]}, "section2": {"Only as Good as Our Last Pizza": ["Drives consistently high standards in the kitchen.", "Ensures every pizza leaves the pass looking perfect.", "Leads by example during every service."], "Be the Expert": ["Supports the Head Chef with menu changes, ensuring preparation, ordering and training are completed successfully.", "Shares knowledge with the BOH team to improve food quality and consistency."], "Quality of Pizza": ["Ensures every pizza meets Pizza Pilgrims specifications.", "Identifies mistakes and coaches chefs to continually improve standards."], "Controlling the Pass / Service": ["Demonstrates excellent coordination and communication during service.", "Ensures food leaves the kitchen at the correct time, temperature and specification.", "Maintains excellent communication with the FOH team throughout service."], "Getting Organised": ["Ensures the kitchen is fully prepared before every shift.", "Organises stockrooms and refrigeration correctly.", "Ensures all products are labelled and stored in line with Health & Safety requirements."], "Pre-Shift": ["Plays an active role during pre-shift meetings.", "Shares knowledge, communicates daily priorities and motivates the kitchen team."], "Everyone is a Host": ["Welcomes every guest with warmth and positivity whenever possible.", "Encourages the BOH team to contribute to the guest experience."], "Resolving Guest Complaints": ["Confidently handles guest complaints regarding food quality.", "Supports colleagues in resolving issues professionally."], "Super Kind Bombs!": ["Looks for opportunities to create memorable guest experiences.", "Encourages thoughtful acts of kindness throughout the kitchen team."], "One Team, One Dream": ["Builds a positive and supportive kitchen culture.", "Leads by example and protects the Pizza Pilgrims culture."], "Communication": ["Demonstrates excellent communication with BOH, FOH and management teams."]}, "section3": {"Dough": ["Demonstrates expert dough handling and stretching techniques.", "Coaches junior chefs to improve consistency and confidence."], "Pizza Building": ["Produces every pizza exactly to specification.", "Ensures correct ingredient portions and presentation.", "Maintains speed without compromising quality."], "Oven Management": ["Controls the pizza oven confidently during busy services.", "Delivers consistently excellent cooking standards.", "Supports other chefs working the oven."], "Food Preparation": ["Produces consistently excellent food preparation.", "Ensures ingredients meet Pizza Pilgrims specifications.", "Coaches junior team members on preparation standards."], "Equipment": ["Uses, cleans and maintains all kitchen equipment correctly.", "Reports maintenance issues promptly."], "Knife Skills": ["Demonstrates excellent knife skills.", "Promotes safe working practices throughout the kitchen."], "Cleaning Standards": ["Completes daily, weekly and deep cleaning tasks to an exceptional standard.", "Maintains outstanding hygiene standards throughout every shift."], "Food Safety Monitoring System": ["Completes and reviews compliance records accurately.", "Supports junior chefs with compliance documentation."], "Time Management": ["Organises the kitchen effectively before and during service.", "Maintains calm and efficient performance during busy periods.", "Prioritises tasks to support the whole kitchen team."], "Coaching": ["Coaches Trainee, Level 1 and Level 2 Pizza Chefs.", "Provides constructive feedback and supports development."], "Leadership": ["Coaches Trainee, Level 1, Level 2 and Senior Chefs.", "Delivers constructive feedback.", "Supports recruitment, onboarding and development where required."]}, "section4": {"The Pilgrimage": ["Understands the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.", "Knows the founders, company purpose, pillars and B Corp commitments.", "Shares this knowledge confidently with the team."], "The Product": ["Expert understanding of dough, recipes, specifications and ingredient provenance.", "Ensures food quality remains consistently excellent.", "Acts as a role model for product knowledge."], "The People": ["Understands the Pizza Base support functions.", "Promotes The Academy and supports the development of junior chefs."]}, "section5": {"The Business": ["Understands the key commercial KPIs affecting kitchen performance.", "Recognises how food quality, waste, labour efficiency and speed of service impact business performance."], "Food Cost & Waste": ["Minimises food waste through excellent preparation, portion control and stock rotation.", "Supports the Head Chef in protecting gross profit."], "Deliveroo": ["Understands the importance of accuracy, speed and presentation for Deliveroo orders.", "Helps the kitchen consistently achieve Deliveroo KPIs."], "Reviews": ["Understands the impact of guest feedback on business performance.", "Takes ownership of food quality to help deliver consistently excellent guest reviews."], "Leadership": ["Leads by example every shift.", "Supports the Head Chef in developing the BOH team.", "Takes responsibility for maintaining Pizza Pilgrims’ standards and culture within the kitchen."], "Leadership & Development": ["Acts as the Head Chef’s second-in-command.", "Leads the kitchen confidently in the Head Chef’s absence.", "Develops future chefs through coaching, mentoring and regular feedback.", "Maintains Pizza Pilgrims’ culture, standards and values every day."]}};
+const data = {
 
+"section1": {
+
+"Food Safety & Compliance": [
+
+"Has completed the Level 2 Food Safety compliance course in All Gravy and can confidently answer questions relating to the Health & Safety System.",
+"Carries out regular kitchen walk-arounds to ensure the area remains clean, safe and legally compliant.",
+"Completes daily shelf-life, labelling and temperature checks and immediately addresses any inaccurate or falsified records.",
+"Demonstrates a thorough understanding of HACCP principles, food safety procedures and compliance recording.",
+"Ensures daily Trail records are completed accurately and delegates compliance tasks appropriately."
+
+],
+
+"Health, Safety & Risk": [
+
+"Understands COSHH requirements and ensures the BOH team are trained and compliant.",
+"Support with the traning of new chefs, using the AG compliance courses as guidance.",
+"Promotes safe working practices and coaches the team to prevent accidents.",
+"Demonstrates a full understanding of allergy procedures and ensures the BOH team follow them confidently.",
+"Understands pest prevention procedures and ensures findings from pest control reports are actioned.",
+"Understands kitchen fire safety procedures, evacuation routes and assembly points."
+
+],
+
+"Kitchen Operations": [
+"Reports equipment faults and maintenance issues promptly and works effectively with maintenance engineers.",
+"Checks deliveries for quality, quantity and temperature and escalates any concerns appropriately.",
+"Maintains excellent storage standards, including stock rotation, labelling and refrigeration.",
+"Supports the Head Chef in maintaining outstanding operational, food safety and hygiene standards throughout the kitchen."
+]
+
+},
+
+"section2": {
+
+"Food Quality & Product Expertise": [
+"Consistently delivers pizzas and other menu items to Pizza Pilgrims specifications.",
+"Ensures every pizza leaves the pass with the correct appearance, temperature, ingredients and presentation.",
+"Identifies quality issues quickly and coaches chefs to improve consistency.",
+"Supports the Head Chef with new specials through effective preparation, ordering, training and tastings.",
+"Shares product knowledge with the FOH team to improve confidence, quality and understanding."
+
+],
+
+"Service Leadership & Organisation": [
+"Demonstrates excellent coordination and communication in the pizzeria and over the pass during busy services.",
+"Ensures food leaves the kitchen at the correct time, temperature and specification.",
+"Maintains strong communication between the BOH, FOH and management teams.",
+"Ensures the kitchen is fully prepared and organised before every shift.",
+"Maintains organised stockrooms and refrigeration areas with all products stored correctly.",
+"Contributes actively to pre-shift meetings by communicating priorities and motivating the kitchen team."
+],
+
+"Guest Experience & Team Culture": [
+"Encourages the BOH team to contribute positively to every guest’s experience.",
+"Welcomes and engages with guests warmly whenever possible.",
+"Looks for opportunities to create memorable experiences through Super kind bombs",
+"Builds a positive, supportive and high-performing kitchen culture.",
+"Leads by example and protects Pizza Pilgrims’ standards, values and culture."
+]
+
+},
+
+"section3": {
+
+"Pizza Skills": [
+"Demonstrates expert dough handling and stretching techniques.",
+"Produces every pizza to spec with correct portions, presentation and consistency.",
+"Maintains speed during busy services without compromising quality.",
+"Controls the pizza oven confidently and delivers consistently excellent cooking standards.",
+"Supports and coaches other chefs working on dough, pizza building and oven management."
+
+],
+
+"Kitchen Operations & Standards": [
+
+"Completes food preparation accurately and ensures ingredients meet Pizza Pilgrims specifications.",
+"Uses, cleans and maintains all kitchen equipment correctly and safely.",
+"Demonstrates kitchen skills and promotes safe working practices.",
+"Can place orders, process invoices and put away deliverying complying with legal standards.",
+"Completes daily, weekly and deep-cleaning tasks to an exceptional standard.",
+"Organises the kitchen effectively, remains calm under pressure and prioritises tasks to support the whole team."
+
+],
+
+"Coaching & Leadership": [
+"Coaches Trainee, Level 1, Level 2 to improve confidence, consistency and performance.",
+"Provides regular, constructive feedback and supports individual development.",
+"Supports recruitment and training of new BOH team members.",
+"Leads confidently during busy services and in the Head Chef’s absence.",
+
+]
+
+},
+"section4": {
+
+"The Pizza Pilgrims Story": [
+"Understands the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.",
+"Knows the founders, company purpose, pillars and B Corp commitments.",
+"Shares the Pizza Pilgrims purpose and values confidently with the team."
+],
+
+"Product Knowledge": [
+"Demonstrates expert knowledge of dough, recipes, specifications and ingredient provenance.",
+"Ensures food quality remains consistently excellent across the kitchen.",
+"Acts as a role model for product knowledge and supports the development of junior chefs."
+],
+
+"Our People": [
+"Understands the Food Team support functions and how they help pizzerias succeed.",
+"Builds positive relationships with FOH, BOH, management and wider company teams."
+]
+
+},
+
+"section5": {
+
+"Commercial Awareness": [
+"Understands the weekly KPIs affecting kitchen performance.",
+"Recognises how food quality, waste, labour efficiency, speed of service and guest feedback affect business results.",
+"Support the Head Chef in improving kitchen labour efficiency & performance.",
+"Takes ownership of food quality to help deliver consistently excellent guest reviews."
+],
+
+"Food Cost, Waste & Delivery": [
+"Minimises food waste through accurate preparation, portion control, stock rotation and storage.",
+"Supports the Head Chef in protecting food cost and gross profit.",
+"Supports the kitchen in consistently achieving Deliveroo and delivery performance targets."
+],
+
+"Leadership & Development": [
+"Leads by example and takes responsibility for maintaining Pizza Pilgrims’ standards and culture.",
+"Develops future chefs and kitchen leaders through clear training and succession planning.",
+"Maintains Pizza Pilgrims’ culture, standards and values every day."
+]
+}
+};
 function buildSection(sectionId){
 const container=document.getElementById(sectionId);
 const section=data[sectionId];
