@@ -68,7 +68,8 @@ button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px
 </section>
 
 <script>
-const data "section1": {
+const data = {
+"section1": {
 
 "Food Safety & Compliance": [
 "Carries out regular walk-arounds of the kitchen to ensure it is clean, safe and legally compliant.",
@@ -190,7 +191,7 @@ const data "section1": {
 "Coaching & Leadership": [
 "Provides constructive feedback and supports development.",
 "Recruits, develops and coaches all BOH team members.",
-"Utilises Pilgrims Pathways tools to frame team development."
+"Utilises Pilgrims Pathways tools to frame team development.",
 "Delivers regular feedback and performance conversations.",
 "Creates succession plans for future kitchen leaders.",
 "Leads confidently during busy services and challenging situations."
@@ -213,7 +214,7 @@ const data "section1": {
 
 "Our People": [
 "Understands the Pizza Base support functions.",
-"Promotes The Academy and supports the development of junior chefs."
+"Promotes The Academy and supports the development of junior chefs.",
 "Contributes positively to area meetings, super 6'ers and other wider company interactions"
 ]
 
@@ -246,8 +247,9 @@ const data "section1": {
 "Develops future Senior Chefs, Second Chefs and Head Chefs.",
 "Protects and champions the Pizza Pilgrims culture, standards and values every day."
 ]
-
 }
+};
+
 function buildSection(sectionId){
 const container=document.getElementById(sectionId);
 const section=data[sectionId];
