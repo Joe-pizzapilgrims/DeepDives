@@ -93,11 +93,8 @@ button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px
 <textarea placeholder="Agreed actions, training priorities and follow-up dates..."></textarea>
 </div>
 </section>
-
 <script>
-
 const data = {
-
 section1: {
 
 "Health and Safety": [
@@ -143,7 +140,8 @@ section2: {
 "Takes part in regular food audits to promote coaching and development around our menu.",
 "Ensures every pizza leaving the kitchen meets specification and quality expectations.",
 "Coaches team and chefs to continually improve consistency and standards."
-"Able to contribute to the kitchen prep and condifently finish all pizzas to spec
+"Able to contribute to the kitchen prep and condifently finish all pizzas to spec."
+  
 "Controlling the Pass / Service": [
 "Maintains excellent communication between kitchen and floor teams.",
 "Ensures food leaves the kitchen at the correct time, temperature and presentation standard.",
@@ -175,9 +173,9 @@ section2: {
 
 "Guest Experience": [
 "Handles complex guest concerns professionally and confidently.",
-"Able to competently manage and oversee any guest recovery bookings we might have."
+"Able to competently manage and oversee any guest recovery bookings we might have.",
 "Creates memorable guest experiences through thoughtful and unexpected acts of generosity.",
-"Encourages the whole team to recognise opportunities to delight guests."
+"Encourages the whole team to recognise opportunities to delight guests.",
 "Able to lead a peak shift, that delivers a great guest experience, measured by positive google reviews."
 
 ],
@@ -205,7 +203,7 @@ section3: {
 "Understands how to support the General Manager in all aspects of FOH operations.",
 "Confidently supports every department whenever required.",
 "Can open the restaurant correctly and within the time frame, ensuring we are always ready for our first guests.",
-"knows and adheeds to the restaurant opening hours."
+"Knows and adheeds to the restaurant opening hours.",
 "Maintains exceptional Brilliant at the basics standards across every service."
 
 ],
@@ -264,19 +262,12 @@ section5: {
 "Understands the importance of guest feedback.",
 "Can lead the shift to achieve the company’s target for Google reviews and sentiment for that day.",
 "Knows weekly review targets, expected scores and how to coach the team to improve guest satisfaction."
-
 ]
-
 }
-
 };
-
 function buildSection(sectionId){
-
 const container = document.getElementById(sectionId);
-
 const section = data[sectionId];
-
 for(const heading in section){
 
 const h = document.createElement("h3");
