@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deep Dive – Küchenchef (m/w/d)</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#dcefdc;
+    color:white;
+}
+
+.page{
+    min-height:100vh;
+    padding:40px;
+    box-sizing:border-box;
+    background:#123d2b;
+    page-break-after:always;
+}
+
+.front{
+    background:
+        linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),
+        url("../background.png") center/cover no-repeat;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.logo{
+    max-width:220px;
+    margin:0 auto 30px;
+}
+
+.card{
+    background:#1f5c3d;
+    padding:25px;
+    border-radius:12px;
+    margin:20px 0;
+}
+
+h1{
+    font-size:46px;
+    margin:10px 0;
+}
+
+h2{
+    border-bottom:2px solid white;
+    padding-bottom:10px;
+}
+
+h3{
+    margin-top:25px;
+}
+
+input[type=text]{
+    width:100%;
+    padding:12px;
+    margin:8px 0 18px;
+    border:0;
+    border-radius:6px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+textarea{
+    width:100%;
+    min-height:180px;
+    padding:15px;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+    border:0;
+    border-radius:8px;
+    box-sizing:border-box;
+    resize:vertical;
+    background:white;
+    color:#222;
+}
+
+.item{
+    display:flex;
+    gap:12px;
+    background:#1f5c3d;
+    margin:8px 0;
+    padding:12px;
+    border-radius:8px;
+}
+
+.item input{
+    transform:scale(1.3);
+}
+
+button{
+    background:white;
+    color:#123d2b;
+    border:0;
+    padding:14px 20px;
+    margin:10px 8px 0 0;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.result{
+    font-size:48px;
+    font-weight:bold;
+}
+
+.back-link{
+    display:inline-block;
+    margin-top:20px;
+    color:white;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.back-link:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:650px){
+
+    .page{
+        padding:25px 16px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    .item{
+        align-items:flex-start;
+    }
+}
+
+@media print{
+
+    button,
+    .back-link{
+        display:none;
+    }
+
+    .page{
+        min-height:auto;
+    }
+
+    input[type=text],
+    textarea{
+        border:1px solid #aaa;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="page front">
+
+    <img src="../logo.png" class="logo" alt="Pizza Pilgrims Logo">
+
+    <h1>DEEP DIVE</h1>
+    <h2>KÜCHENCHEF (M/W/D)</h2>
+
+    <div class="card">
+        <h2>Was ist ein Deep Dive?</h2>
+
+        <p>
+            Ein Deep Dive ist eine detaillierte Stellenbeschreibung, die Punkt für
+            Punkt erklärt, für welche Aufgaben und Standards deine Position
+            verantwortlich ist. Du kannst ihn jederzeit während deiner Entwicklung
+            nutzen, um zu überprüfen, ob du alle Bereiche deiner Rolle beherrschst,
+            bevor du dich auf den nächsten Karriereschritt vorbereitest.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Wie wird der Deep Dive genutzt?</h2>
+
+        <p>
+            Der Deep Dive kann sowohl als Momentaufnahme als auch als fortlaufendes
+            Entwicklungsdokument verwendet werden. Du kannst ihn ausdrucken,
+            durchlesen und jede Zeile entweder abhaken oder bewerten. Nimm dir
+            gemeinsam mit deiner Führungskraft Zeit, um festzustellen, in welchen
+            Bereichen du bereits besonders stark bist und worauf du dich als
+            Nächstes konzentrieren solltest.
+        </p>
+    </div>
+
+    <a class="back-link" href="index.html">← Zurück zu den Positionen</a>
+
+</section>
+
+<section class="page">
+
+    <h2>Grundlegende Angaben</h2>
+
+    <div class="card">
+
+        <label>Name</label>
+        <input type="text">
+
+        <label>Position</label>
+        <input type="text" value="Küchenchef (m/w/d)">
+
+        <label>Standort</label>
+        <input type="text">
+
+        <label>Direkte Führungskraft</label>
+        <input type="text">
+
+    </div>
+
+</section>
+
+<section class="page">
+    <h2>Abschnitt 1 – Alles rund um Sicherheit</h2>
+    <div id="section1"></div>
+</section>
+
+<section class="page">
+    <h2>Abschnitt 2 – Alles rund um Service und Qualität</h2>
+    <div id="section2"></div>
+</section>
+
+<section class="page">
+    <h2>Abschnitt 3 – Praktische Fähigkeiten</h2>
+    <div id="section3"></div>
+</section>
+
+<section class="page">
+    <h2>Abschnitt 4 – Alles rund um Pizza Pilgrims</h2>
+    <div id="section4"></div>
+</section>
+
+<section class="page">
+    <h2>Abschnitt 5 – Alles rund um das Geschäft</h2>
+    <div id="section5"></div>
+</section>
+
+<section class="page">
+
+    <h2>Abschlussübersicht</h2>
+
+    <div class="card">
+
+        <p><strong>Gesamtfortschritt:</strong></p>
+
+        <div class="result" id="score">0%</div>
+
+        <button onclick="calculate()">Ergebnis berechnen</button>
+        <button onclick="window.print()">Drucken / Als PDF speichern</button>
+        <button onclick="resetForm()">Zurücksetzen</button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Kommentare der Führungskraft</h2>
+
+        <textarea
+            placeholder="Stärken, Beobachtungen und Coaching-Kommentare..."
+        ></textarea>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Nächste Schritte</h2>
+
+        <textarea
+            placeholder="Vereinbarte Maßnahmen, Trainingsschwerpunkte und Termine für die Nachverfolgung..."
+        ></textarea>
+
+    </div>
+
+</section>
+
+<script>
+const data = {
+
+"section1": {
+
+"Lebensmittelsicherheit und Einhaltung der Vorschriften": [
+"Führt regelmäßige Kontrollgänge durch die Küche durch, um sicherzustellen, dass sie sauber, sicher und gesetzeskonform ist.",
+"Übernimmt die Verantwortung für Audits des Auditing Company Systems und kommuniziert Ergebnisse, Prioritäten und Maßnahmenpläne an das Küchenteam.",
+"Versteht die Auditergebnisse im Detail und delegiert daraus entstehende Maßnahmen wirkungsvoll.",
+"Stellt sicher, dass die Pizzeria jederzeit die höchsten betrieblichen Standards erfüllt, indem Probleme aus internen Audits, dem Auditing Company System oder dem Gesundheits- und Sicherheitssystem sofort bearbeitet werden.",
+"Kontrolliert täglich Haltbarkeitsdaten und die korrekte Kennzeichnung der Produkte.",
+"Coacht Küchenmitarbeiter bei Bedarf und erkennt gefälschte oder unzulässig verlängerte Haltbarkeitsangaben.",
+"Stellt sicher, dass alle Temperaturaufzeichnungen vollständig und korrekt durchgeführt werden.",
+"Untersucht und bearbeitet falsche oder manipulierte Aufzeichnungen unverzüglich.",
+"Verfügt über fundierte Kenntnisse der HACCP-Grundsätze, der Lebensmittelsicherheitssysteme und der erforderlichen Dokumentation.",
+"Stellt sicher, dass die HACCP-Standards in der gesamten Küche konsequent eingehalten werden.",
+"Stellt sicher, dass alle täglichen Compliance-Aufzeichnungen vollständig und korrekt ausgefüllt werden.",
+"Delegiert Compliance-Aufgaben, wenn dies angemessen ist.",
+"Trägt dazu bei, in der gesamten Küche hervorragende Lebensmittelsicherheitsstandards aufrechtzuerhalten.",
+"Hat die Qualifikation Lebensmittelsicherheit Stufe 3 erfolgreich abgeschlossen.",
+"Kann Fragen zum Gesundheits- und Sicherheitssystem sicher und kompetent beantworten.",
+"Übernimmt die Führungsverantwortung für Lebensmittelsicherheit in der Küche."
+],
+
+"Gesundheit, Sicherheit und Risikomanagement": [
+"Stellt sicher, dass jedes Mitglied des Küchenteams die COSHH-Verfahren versteht und befolgt.",
+"Sichert die vollständige Einhaltung der Vorgaben durch Coaching und regelmäßige Kontrollen.",
+"Stellt sicher, dass alle neuen Mitglieder des Küchenteams während ihrer Einarbeitung die erforderlichen Risikobewertungen durchführen.",
+"Schafft eine Kultur, in der sichere Arbeitsweisen nicht verhandelbar sind.",
+"Coacht das Team, um Unfälle zu vermeiden und außergewöhnlich hohe Sicherheitsstandards aufrechtzuerhalten.",
+"Versteht die Brandschutzverfahren der Küche sowie Fluchtwege und Sammelpunkte.",
+"Versteht die Verfahren zur Schädlingsbekämpfung und weiß, wie Schädlingsaktivität verhindert werden kann.",
+"Reagiert auf Feststellungen aus Schädlingskontrollberichten und kommuniziert notwendige Maßnahmen an das Management und das Küchenteam."
+],
+
+"Betriebsabläufe": [
+"Kontrolliert Lieferungen auf Qualität, Menge und Temperatur.",
+"Kommuniziert mögliche Probleme mit erfahrenen Kollegen, Lieferanten oder dem Food Team.",
+"Meldet Gerätefehler und Wartungsprobleme unverzüglich an die zuständige Führungskraft.",
+"Arbeitet bei Bedarf effektiv mit Wartungstechnikern zusammen."
+],
+
+"Allergiemanagement": [
+"Verfügt über ein vollständiges Verständnis des Allergieverfahrens vom Anfang bis zum Ende.",
+"Stellt sicher, dass das Küchenteam die Allergieverfahren versteht und sicher anwenden kann."
+]
+
+},
+
+"section2": {
+
+"Lebensmittelqualität": [
+"Fördert dauerhaft hohe Standards in der Küche.",
+"Stellt sicher, dass jede Pizza die Ausgabe in perfektem Zustand verlässt.",
+"Geht während jedes Services mit gutem Beispiel voran.",
+"Stellt sicher, dass jede Pizza den Vorgaben von Pizza Pilgrims entspricht.",
+"Erkennt Fehler und coacht Küchenmitarbeiter, damit sich die Standards kontinuierlich verbessern."
+],
+
+"Führung des Küchenteams": [
+"Zeigt während des Services eine hervorragende Koordination und Kommunikation.",
+"Stellt sicher, dass Speisen zum richtigen Zeitpunkt, bei der richtigen Temperatur und gemäß den Vorgaben ausgegeben werden.",
+"Pflegt während des gesamten Services eine hervorragende Kommunikation mit dem Front-of-House-Team.",
+"Stellt sicher, dass die Küche vor jeder Schicht vollständig vorbereitet ist.",
+"Organisiert Lagerräume und Kühlbereiche korrekt.",
+"Stellt sicher, dass alle Produkte korrekt gekennzeichnet und gelagert werden.",
+"Übernimmt eine aktive Rolle bei den Besprechungen vor der Schicht.",
+"Teilt Wissen, kommuniziert die täglichen Prioritäten und motiviert das Küchenteam."
+],
+
+"Produktexpertise": [
+"Ist die führende Ansprechperson für Pizzen, Beilagen, Desserts und Zutaten.",
+"Leitet alle Menüschulungen und Verkostungen für das Küchenteam.",
+"Plant Menüeinführungen, Bestellungen und Vorbereitungsarbeiten erfolgreich.",
+"Stellt sicher, dass jeder Küchenmitarbeiter die Rezepte, Produktspezifikationen und Geschichten hinter den Zutaten versteht."
+],
+
+"Gastfreundschaft und Teamkultur": [
+"Begrüßt Gäste, wann immer möglich, herzlich und positiv.",
+"Ermutigt das Küchenteam, aktiv zum Gästeerlebnis beizutragen.",
+"Bearbeitet Gästebeschwerden zur Lebensmittelqualität sicher und professionell.",
+"Unterstützt Kollegen dabei, Probleme professionell zu lösen.",
+"Sucht nach Möglichkeiten, unvergessliche Gästeerlebnisse zu schaffen.",
+"Fördert aufmerksame und freundliche Gesten im gesamten Küchenteam.",
+"Schafft eine positive und unterstützende Küchenkultur.",
+"Geht mit gutem Beispiel voran und schützt die Kultur von Pizza Pilgrims.",
+"Kommuniziert hervorragend mit dem Küchen-, Front-of-House- und Managementteam."
+]
+
+},
+
+"section3": {
+
+"Pizza-Fähigkeiten": [
+"Beherrscht den Umgang mit Teig und professionelle Ausziehtechniken auf Expertenniveau.",
+"Coacht weniger erfahrene Küchenmitarbeiter, damit sie konstanter und sicherer arbeiten.",
+"Bereitet jede Pizza exakt nach den vorgegebenen Produktspezifikationen zu.",
+"Stellt die korrekte Portionierung und Präsentation der Zutaten sicher.",
+"Arbeitet schnell, ohne Kompromisse bei der Qualität einzugehen.",
+"Bedient und kontrolliert den Pizzaofen auch während stark frequentierter Services sicher.",
+"Liefert dauerhaft hervorragende Back- und Garergebnisse.",
+"Unterstützt andere Küchenmitarbeiter bei der Arbeit am Ofen."
+],
+
+"Küchenabläufe": [
+"Gewährleistet dauerhaft eine hervorragende Vorbereitung der Lebensmittel.",
+"Stellt sicher, dass alle Zutaten den Vorgaben von Pizza Pilgrims entsprechen.",
+"Coacht weniger erfahrene Teammitglieder zu den Standards der Vorbereitung.",
+"Verwendet, reinigt und wartet sämtliche Küchengeräte korrekt.",
+"Meldet und bearbeitet Wartungsprobleme unverzüglich.",
+"Organisiert die Küche vor und während des Services effektiv.",
+"Bleibt auch in stark frequentierten Zeiten ruhig und arbeitet effizient.",
+"Priorisiert Aufgaben so, dass das gesamte Küchenteam optimal unterstützt wird."
+],
+
+"Standards und Lebensmittelsicherheit": [
+"Zeigt hervorragende Fähigkeiten im sicheren Umgang mit Messern.",
+"Fördert sichere Arbeitsweisen in der gesamten Küche.",
+"Erledigt tägliche, wöchentliche und intensive Reinigungsaufgaben auf außergewöhnlich hohem Niveau.",
+"Hält während jeder Schicht hervorragende Hygienestandards aufrecht.",
+"Füllt Compliance-Aufzeichnungen korrekt aus und überprüft sie.",
+"Unterstützt weniger erfahrene Pizzabäcker bei der Bearbeitung der Compliance-Dokumentation."
+],
+
+"Coaching und Führung": [
+"Gibt konstruktives Feedback und unterstützt die Entwicklung der Teammitglieder.",
+"Rekrutiert, entwickelt und coacht sämtliche Mitglieder des Küchenteams.",
+"Nutzt die Werkzeuge von Pilgrims Pathways, um die Entwicklung des Teams zu strukturieren.",
+"Führt regelmäßige Feedback- und Leistungsgespräche.",
+"Erstellt Nachfolgepläne für zukünftige Führungskräfte in der Küche.",
+"Führt das Team auch während stark frequentierter Services und herausfordernder Situationen sicher."
+]
+
+},
+
+"section4": {
+
+"Unsere Geschichte": [
+"Versteht die Geschichte von Pizza Pilgrims einschließlich der ursprünglichen Pilgrimage und Pilgrimage 2.0.",
+"Kennt die Gründer, den Unternehmenszweck, die Säulen des Unternehmens und die B-Corp-Verpflichtungen.",
+"Teilt dieses Wissen sicher und verständlich mit dem Team."
+],
+
+"Produktwissen": [
+"Verfügt über Expertenwissen zu Teig, Rezepten, Produktspezifikationen und der Herkunft der Zutaten.",
+"Stellt sicher, dass die Lebensmittelqualität dauerhaft hervorragend bleibt.",
+"Ist ein Vorbild für ausgezeichnetes Produktwissen."
+],
+
+"Unsere Mitarbeitenden": [
+"Versteht die unterstützenden Funktionen der Pizza Base.",
+"Fördert The Academy und unterstützt die Entwicklung weniger erfahrener Küchenmitarbeiter.",
+"Trägt positiv zu Area Meetings, Super 6’ers und anderen unternehmensweiten Veranstaltungen und Austauschformaten bei."
+]
+
+},
+
+"section5": {
+
+"Kaufmännisches Verständnis": [
+"Versteht die wichtigsten wirtschaftlichen Kennzahlen, die die Leistung der Küche beeinflussen.",
+"Erkennt, wie Lebensmittelqualität, Abfall, Personaleffizienz und Servicegeschwindigkeit die Geschäftsergebnisse beeinflussen.",
+"Versteht, welchen Einfluss Gästefeedback auf die Geschäftsentwicklung hat.",
+"Übernimmt Verantwortung für die Lebensmittelqualität, um dauerhaft hervorragende Gästebewertungen zu erreichen."
+],
+
+"Warenbestand, Abfall und Lieferungen": [
+"Minimiert Lebensmittelabfälle durch hervorragende Vorbereitung, Portionskontrolle und Warenrotation.",
+"Schützt den Rohertrag durch wirksame Bestandskontrolle, Abfallreduzierung und korrekte Portionierung.",
+"Versteht die Bedeutung von Genauigkeit, Geschwindigkeit und Präsentation bei Deliveroo-Bestellungen.",
+"Stellt sicher, dass die Küche die Deliveroo-Kennzahlen dauerhaft erreicht."
+],
+
+"Führung": [
+"Geht in jeder Schicht mit gutem Beispiel voran.",
+"Übernimmt die Gesamtverantwortung für die Entwicklung und Leistung des Küchenteams.",
+"Übernimmt Verantwortung dafür, die Standards und die Kultur von Pizza Pilgrims in der Küche aufrechtzuerhalten."
+],
+
+"Personalentwicklung": [
+"Führt das Küchenteam mit Selbstvertrauen, Beständigkeit und Integrität.",
+"Baut durch Coaching, Mentoring und klare Verantwortlichkeit ein leistungsstarkes Küchenteam auf.",
+"Entwickelt zukünftige Senior-Pizzabäcker, Zweite Küchenchefs und Küchenchefs.",
+"Schützt und fördert jeden Tag die Kultur, Standards und Werte von Pizza Pilgrims."
+]
+
+}
+
+};
+
+function buildSection(sectionId){
+
+    const container = document.getElementById(sectionId);
+    const section = data[sectionId];
+
+    for(const heading in section){
+
+        const h = document.createElement("h3");
+        h.textContent = heading;
+        container.appendChild(h);
+
+        section[heading].forEach(text => {
+
+            const div = document.createElement("div");
+            div.className = "item";
+
+            div.innerHTML =
+                '<input type="checkbox" class="tick">' +
+                '<span>' + text + '</span>';
+
+            container.appendChild(div);
+
+        });
+    }
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+
+    const boxes = document.querySelectorAll(".tick");
+    const checked = document.querySelectorAll(".tick:checked");
+
+    const score = boxes.length
+        ? Math.round((checked.length / boxes.length) * 100)
+        : 0;
+
+    document.getElementById("score").textContent = score + "%";
+}
+
+function resetForm(){
+
+    document.querySelectorAll("input").forEach(input => {
+
+        if(input.type === "checkbox"){
+            input.checked = false;
+        }else{
+            input.value = "";
+        }
+
+    });
+
+    document.querySelectorAll("textarea").forEach(area => {
+        area.value = "";
+    });
+
+    document.getElementById("score").textContent = "0%";
+}
+
+document.addEventListener("change", calculate);
+</script>
+
+</body>
+</html>
