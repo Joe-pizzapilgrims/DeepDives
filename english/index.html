@@ -3,107 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Dives</title>
+
+<title>Pizza Pilgrims Deep Dives</title>
 
 <style>
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  color:white;
-  min-height:100vh;
-  background:
-    linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
-    url("background.jpg") center/cover no-repeat fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:white;
+    background:
+        linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
+        url("../background.png") center/cover no-repeat;
+}
+
+.page{
+    min-height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .container{
-  width:90%;
-  max-width:900px;
-  padding:40px;
+    width:100%;
+    max-width:760px;
+    text-align:center;
 }
 
 .logo{
-  max-width:220px;
-  margin-bottom:25px;
+    width:220px;
+    max-width:70%;
+    margin:0 auto 28px;
+    display:block;
 }
 
 h1{
-  font-size:72px;
-  margin:10px 0 20px;
-  letter-spacing:3px;
+    margin:0 0 10px;
+    font-size:58px;
+    letter-spacing:2px;
 }
 
-p{
-  font-size:20px;
-  margin-bottom:35px;
+.subtitle{
+    margin:0 0 35px;
+    font-size:21px;
+    line-height:1.5;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+.card{
+    background:#1f5c3d;
+    padding:30px;
+    margin:0 auto 30px;
+    border-radius:14px;
+    text-align:left;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
 }
 
-.button{
-  display:block;
-  background:#1f5c3d;
-  color:white;
-  text-decoration:none;
-  padding:20px;
-  border-radius:12px;
-  font-size:20px;
-  font-weight:bold;
-  border:2px solid white;
-  transition:.2s ease;
+.card h2{
+    margin:0 0 16px;
+    padding-bottom:10px;
+    border-bottom:2px solid white;
+    font-size:28px;
 }
 
-.button:hover{
-  background:white;
-  color:#123d2b;
-  transform:translateY(-2px);
+.card p{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
 }
 
-.footer{
-  margin-top:35px;
-  font-size:14px;
-  opacity:.85;
+.card p:last-child{
+    margin-bottom:0;
 }
 
-@media(max-width:600px){
-  h1{font-size:46px}
-  .container{padding:25px}
+.role-section{
+    margin-top:35px;
+}
+
+.role-section h2{
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.role-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.role-button{
+    display:block;
+    background:white;
+    color:#123d2b;
+    text-decoration:none;
+    padding:18px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+    transition:transform .2s, background .2s;
+}
+
+.role-button:hover{
+    background:#dcefdc;
+    transform:translateY(-2px);
+}
+
+.home-link{
+    display:inline-block;
+    margin-top:30px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.home-link:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:650px){
+    .page{
+        padding:25px 16px;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .role-buttons{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <img src="logo.png" class="logo" alt="Logo">
+<main class="page">
+    <div class="container">
 
-  <h1>DEEP DIVES</h1>
-  <p>Select a role to open the relevant Deep Dive.</p>
+        <img src="../logo.png" class="logo" alt="Pizza Pilgrims">
 
-  <div class="grid">
-    <a class="button" href="waiter.html">Waiter</a>
-    <a class="button" href="supervisor.html">Supervisor</a>
-    <a class="button" href="AM.html">Assistant Manager</a>
-    <a class="button" href="GM.html">General Manager</a>
-    <a class="button" href="kpprepchef.html">KP Prep Chef</a>
-    <a class="button" href="pizzachef.html">Pizza Chef</a>
-    <a class="button" href="seniorchef.html">Senior Chef</a>
-    <a class="button" href="secondchef.html">Second Chef</a>
-    <a class="button" href="headchef.html">Head Chef</a>
-  </div>
+        <h1>DEEP DIVES</h1>
 
-  <div class="footer">
-    Pizza Pilgrims Deep Dive Library
-  </div>
-</div>
+        <p class="subtitle">
+            Select your role
+        </p>
+
+        <section class="card">
+            <h2>What is a Deep Dive?</h2>
+
+            <p>
+                A Deep Dive is a detailed breakdown of every role at Pizza Pilgrims.
+                It explains the knowledge, skills and standards expected in each
+                position, helping you identify what you already excel at and where
+                you can continue to develop.
+            </p>
+
+            <p>
+                Whether you are just starting your journey or preparing for your
+                next promotion, your Deep Dive is your roadmap to success.
+            </p>
+        </section>
+
+        <section class="role-section">
+            <h2>Front of House</h2>
+
+            <div class="role-buttons">
+                <a class="role-button" href="waiter.html">Waiter</a>
+                <a class="role-button" href="supervisor.html">Supervisor</a>
+                <a class="role-button" href="assistantmanager.html">Assistant Manager</a>
+                <a class="role-button" href="generalmanager.html">General Manager</a>
+            </div>
+        </section>
+
+        <section class="role-section">
+            <h2>Kitchen</h2>
+
+            <div class="role-buttons">
+                <a class="role-button" href="kp.html">KP / Prep Chef</a>
+                <a class="role-button" href="pizzachef.html">Pizza Chef</a>
+                <a class="role-button" href="seniorchef.html">Senior Chef</a>
+                <a class="role-button" href="secondchef.html">Second Chef</a>
+                <a class="role-button" href="headchef.html">Head Chef</a>
+            </div>
+        </section>
+
+        <a class="home-link" href="../index.html">← Back to language selection</a>
+
+    </div>
+</main>
 
 </body>
 </html>
