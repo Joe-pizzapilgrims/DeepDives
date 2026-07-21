@@ -3,115 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Dives Deutschland</title>
+
+<title>Pizza Pilgrims Deep Dives Deutschland</title>
 
 <style>
 body{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#123d2b;
-    color:white;
-    background-image:linear-gradient(rgba(18,61,43,.7),rgba(18,61,43,.7)),url("background.jpg");
-    background-size:cover;
-    background-position:center;
     min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:white;
+    background:
+        linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
+        url("../background.png") center/cover no-repeat;
+}
+
+.page{
+    min-height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
 .container{
+    width:100%;
+    max-width:760px;
     text-align:center;
-    max-width:700px;
-    width:90%;
 }
 
 .logo{
     width:220px;
-    margin-bottom:25px;
+    max-width:70%;
+    margin:0 auto 28px;
+    display:block;
 }
 
 h1{
+    margin:0 0 10px;
     font-size:58px;
-    margin-bottom:10px;
+    letter-spacing:2px;
 }
 
-h2{
-    margin-top:0;
-    margin-bottom:10px;
-    font-size:30px;
+.subtitle{
+    margin:0 0 35px;
+    font-size:21px;
+    line-height:1.5;
 }
 
-p{
-    margin-bottom:35px;
-    font-size:20px;
+.card{
+    background:#1f5c3d;
+    padding:30px;
+    margin:0 auto 30px;
+    border-radius:14px;
+    text-align:left;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
 }
 
-.section{
-    margin-top:40px;
-}
-
-.section h3{
-    margin-bottom:18px;
+.card h2{
+    margin:0 0 16px;
+    padding-bottom:10px;
     border-bottom:2px solid white;
-    display:inline-block;
-    padding-bottom:6px;
+    font-size:28px;
 }
 
-.button{
+.card p{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.card p:last-child{
+    margin-bottom:0;
+}
+
+.role-section{
+    margin-top:35px;
+}
+
+.role-section h2{
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.role-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.role-button{
     display:block;
     background:white;
     color:#123d2b;
     text-decoration:none;
-    padding:16px;
-    margin:12px auto;
-    max-width:450px;
+    padding:18px;
     border-radius:10px;
+    font-size:18px;
     font-weight:bold;
-    transition:.2s;
+    transition:transform .2s, background .2s;
 }
 
-.button:hover{
+.role-button:hover{
     background:#dcefdc;
-    transform:scale(1.02);
+    transform:translateY(-2px);
+}
+
+.home-link{
+    display:inline-block;
+    margin-top:30px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.home-link:hover{
+    text-decoration:underline;
+}
+
+@media(max-width:650px){
+
+.page{
+    padding:25px 16px;
+}
+
+h1{
+    font-size:40px;
+}
+
+.subtitle{
+    font-size:18px;
+}
+.card{
+    padding:22px;
+}
+.role-buttons{
+    grid-template-columns:1fr;
+}
 }
 </style>
 </head>
-
 <body>
-
+<main class="page">
 <div class="container">
-
-<img src="logo.png" class="logo" alt="Pizza Pilgrims">
-
+<img src="../logo.png" class="logo" alt="Pizza Pilgrims">
 <h1>DEEP DIVES</h1>
-<h2>DEUTSCHLAND</h2>
-
-<p>Bitte wähle deine Position aus</p>
-
-<div class="section">
-<h3>Front of House</h3>
-
-<a class="button" href="servicemitarbeiter.html">Servicemitarbeiter</a>
-<a class="button" href="schichtleiter.html">Schichtleiter</a>
-<a class="button" href="stellvertretender_restaurantleiter.html">Stellvertretender Restaurantleiter</a>
-<a class="button" href="restaurantleiter.html">Restaurantleiter</a>
+<p class="subtitle">
+Bitte wähle deine Position aus
+</p>
+<section class="card">
+<h2>Was ist ein Deep Dive?</h2>
+<p>
+Ein Deep Dive ist eine detaillierte Beschreibung jeder Position bei Pizza Pilgrims. Er erklärt die Kenntnisse, Fähigkeiten und Standards, die für jede Rolle erwartet werden, und hilft dir dabei zu erkennen, worin du bereits stark bist und wo du dich noch weiterentwickeln kannst.
+</p>
+<p>
+Egal, ob du gerade erst bei Pizza Pilgrims startest oder dich auf deine nächste Beförderung vorbereitest – dein Deep Dive ist dein Leitfaden für deine Entwicklung.
+</p>
+</section>
+<section class="role-section">
+<h2>Front of House</h2>
+<div class="role-buttons">
+<a class="role-button" href="waiter.html">Servicemitarbeiter (m/w/d)</a>
+<a class="role-button" href="supervisor.html">Schichtleiter (m/w/d)</a>
+<a class="role-button" href="assistantmanager.html">Stellvertretender Restaurantleiter (m/w/d)</a>
+<a class="role-button" href="generalmanager.html">Restaurantleiter (m/w/d)</a>
+</div>
+</section>
+<section class="role-section">
+<h2>Küche</h2>
+<div class="role-buttons">
+<a class="role-button" href="kp.html">Küchenhilfe (m/w/d)</a>
+<a class="role-button" href="pizzachef.html">Pizzabäcker (m/w/d)</a>
+<a class="role-button" href="seniorchef.html">Senior-Pizzabäcker (m/w/d)</a>
+<a class="role-button" href="secondchef.html">Zweiter Küchenchef (m/w/d)</a>
+<a class="role-button" href="headchef.html">Küchenchef (m/w/d)</a>
+</div>
+</section>
+<a class="home-link" href="../index.html">← Zur Sprachauswahl</a>
 
 </div>
-
-<div class="section">
-
-<h3>Küche</h3>
-
-<a class="button" href="kp.html">Küchenhilfe (m/w/d)</a>
-<a class="button" href="pizzachef.html">Pizzabäcker (m/w/d)</a>
-<a class="button" href="seniorchef.html">Senior-Pizzabäcker (m/w/d)</a>
-<a class="button" href="secondchef.html">Zweiter Küchenchef (m/w/d)</a>
-<a class="button" href="headchef.html">Küchenchef (m/w/d)</a>
-
-</div>
-
-</div>
+</main>
 
 </body>
 </html>
