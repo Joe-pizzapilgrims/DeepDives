@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pizza Pilgrims Deep Dives</title>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    color:white;
+    background:
+        linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
+        url("background.png") center/cover no-repeat;
+}
+
+.page{
+    min-height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.container{
+    width:100%;
+    max-width:760px;
+    text-align:center;
+}
+
+.logo{
+    width:220px;
+    max-width:70%;
+    margin:0 auto 28px;
+    display:block;
+}
+
+h1{
+    margin:0 0 10px;
+    font-size:58px;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    margin:0 0 35px;
+    font-size:21px;
+    line-height:1.5;
+}
+
+.card{
+    background:#1f5c3d;
+    padding:30px;
+    margin:0 auto 30px;
+    border-radius:14px;
+    text-align:left;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+
+.card h2{
+    margin:0 0 16px;
+    padding-bottom:10px;
+    border-bottom:2px solid white;
+    font-size:28px;
+}
+
+.card p{
+    margin:0 0 16px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.card p:last-child{
+    margin-bottom:0;
+}
+
+.language-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    max-width:620px;
+    margin:0 auto;
+}
+
+.language-button{
+    display:block;
+    background:white;
+    color:#123d2b;
+    text-decoration:none;
+    padding:20px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+    transition:transform .2s, background .2s;
+}
+
+.language-button:hover{
+    background:#dcefdc;
+    transform:translateY(-2px);
+}
+
+.language-button span{
+    display:block;
+    margin-top:6px;
+    font-size:14px;
+    font-weight:normal;
+}
+
+@media(max-width:650px){
+    .page{
+        padding:25px 16px;
+    }
+
+    h1{
+        font-size:40px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .language-buttons{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+    <div class="container">
+
+        <img src="logo.png" class="logo" alt="Pizza Pilgrims">
+
+        <h1>DEEP DIVES</h1>
+
+        <p class="subtitle">
+            Your guide to becoming an expert in every Pizza Pilgrims role.
+        </p>
+
+        <section class="card">
+            <h2>What is a Deep Dive?</h2>
+
+            <p>
+                A Deep Dive is a detailed breakdown of every role at Pizza Pilgrims.
+                It explains the knowledge, skills and standards expected in each
+                position, helping you identify what you already excel at and where
+                you can continue to develop.
+            </p>
+
+            <p>
+                Whether you are just starting your journey or preparing for your
+                next promotion, your Deep Dive is your roadmap to success.
+            </p>
+        </section>
+
+        <nav class="language-buttons" aria-label="Choose a language">
+
+            <a class="language-button" href="english/index.html">
+                Continue in English
+                <span>View all English Deep Dives</span>
+            </a>
+
+            <a class="language-button" href="german/index.html">
+                Auf Deutsch fortfahren
+                <span>Alle deutschen Deep Dives anzeigen</span>
+            </a>
+
+        </nav>
+
+    </div>
+</main>
+
+</body>
+</html>
