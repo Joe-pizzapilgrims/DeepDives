@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive - Schichtleiter</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#dcefdc;color:white}
+.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}
+.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url("background.jpg") center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.logo{max-width:220px;margin:0 auto 30px}
+.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}
+h1{font-size:46px;margin:10px 0}
+h2{border-bottom:2px solid white;padding-bottom:10px}
+h3{margin-top:25px}
+input[type=text]{width:100%;padding:12px;margin:8px 0 18px;border:0;border-radius:6px;font-size:16px;box-sizing:border-box}
+textarea{width:100%;min-height:180px;padding:15px;font-size:16px;font-family:Arial,sans-serif;border:0;border-radius:8px;box-sizing:border-box;resize:vertical;background:white;color:#222}
+.item{display:flex;gap:12px;background:#1f5c3d;margin:8px 0;padding:12px;border-radius:8px}
+.item input{transform:scale(1.3)}
+button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px 0 0;border-radius:8px;font-weight:bold;cursor:pointer}
+.result{font-size:48px;font-weight:bold}
+@media print{button{display:none}.page{min-height:auto}input[type=text],textarea{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+
+<section class="page front">
+<img src="logo.png" class="logo" alt="Logo">
+<h1>DEEP DIVE</h1>
+<h2>SCHICHTLEITER</h2>
+<div class="card">
+<h2>Was ist ein Deep Dive?</h2>
+<p>Ein Deep Dive ist eine detaillierte Stellenbeschreibung, die Punkt für Punkt alle Verantwortungsbereiche deiner Rolle erklärt. Während deiner gesamten Entwicklung kannst du damit überprüfen, ob du alle Aspekte deiner Rolle sicher beherrschst, bevor du dich auf den nächsten Karriereschritt vorbereitest.</p>
+</div>
+<div class="card">
+<h2>So verwendest du den Deep Dive</h2>
+<p>Dieses Dokument kann sowohl als Momentaufnahme als auch als fortlaufendes Arbeitsdokument genutzt werden. Drucke es aus, lies jeden Punkt und hake ihn ab ✓ oder bewerte ihn mit einer Zahl. Besprich gemeinsam mit deiner Führungskraft, welche Bereiche du bereits hervorragend beherrschst und woran du als Nächstes arbeiten solltest, um dich weiterzuentwickeln.</p>
+</div>
+</section>
+
+<section class="page">
+<h2>Grundlegende Angaben</h2>
+<div class="card">
+<label>Name</label><input type="text">
+<label>Rolle</label><input type="text" value="Schichtleiter">
+<label>Standort</label><input type="text">
+<label>Direkte Führungskraft</label><input type="text">
+</div>
+</section>
+
+<section class="page">
+<h2>Abschnitt 1 – Sicherheit</h2>
+<div id="section1"></div>
+</section>
+
+<section class="page">
+<h2>Abschnitt 2 – Gäste, Service und Qualität</h2>
+<div id="section2"></div>
+</section>
+
+<section class="page">
+<h2>Abschnitt 3 – Praktische Fähigkeiten</h2>
+<div id="section3"></div>
+</section>
+
+<section class="page">
+<h2>Abschnitt 4 – Pizza Pilgrims</h2>
+<div id="section4"></div>
+</section>
+
+<section class="page">
+<h2>Abschnitt 5 – Geschäftliches Verständnis</h2>
+<div id="section5"></div>
+</section>
+
+<section class="page">
+<h2>Abschlussübersicht</h2>
+<div class="card">
+<p><strong>Gesamtfortschritt:</strong></p>
+<div class="result" id="score">0%</div>
+<button onclick="calculate()">Fortschritt berechnen</button>
+<button onclick="window.print()">Drucken / Als PDF speichern</button>
+<button onclick="resetForm()">Zurücksetzen</button>
+</div>
+
+<div class="card">
+<h2>Kommentare der Führungskraft</h2>
+<textarea placeholder="Stärken, Beobachtungen und Coaching-Kommentare..."></textarea>
+</div>
+
+<div class="card">
+<h2>Nächste Schritte</h2>
+<textarea placeholder="Vereinbarte Maßnahmen, Trainingsprioritäten und Folgetermine..."></textarea>
+</div>
+</section>
+<script>
+const data = {
+section1: {
+
+"Gesundheit und Sicherheit": [
+"Führt regelmäßig Rundgänge durch Küche und Restaurant durch, um sicherzustellen, dass alle Bereiche sauber, sicher und gesetzeskonform sind.",
+"Übernimmt die volle Verantwortung für die morgendlichen Trail-Kontrollen und kommuniziert Ergebnisse, Prioritäten und Erkenntnisse an das Managementteam und das gesamte Team.",
+"Versteht Auditberichte, unterstützt wirksam bei den daraus entstehenden Maßnahmen und stellt sicher, dass alle Probleme zeitnah behoben werden.",
+"Stellt sicher, dass die Pizzeria jederzeit sauber, sicher und gesetzeskonform ist und unseren HACCP-Richtlinien entspricht.",
+"Stellt sicher, dass Haltbarkeitsdaten und Produktkennzeichnungen täglich kontrolliert werden.",
+"Schult das Team in den korrekten Abläufen und erkennt sofort manipulierte oder unzulässig verlängerte Haltbarkeitsangaben.",
+"Verwaltet die Temperaturaufzeichnungen und meldet ungenaue oder manipulierte Einträge unverzüglich.",
+"Zeigt gute Kenntnisse der HACCP-Grundsätze, der Lebensmittelsicherheitsverfahren und der vorgeschriebenen Dokumentation.",
+"Stellt sicher, dass alle COSHH-Verfahren korrekt eingehalten werden.",
+"Schafft eine Kultur, in der Sicherheit sowohl im Servicebereich als auch in der Küche höchste Priorität hat.",
+"Meldet alle Geräte- und Wartungsprobleme proaktiv an das Managementteam.",
+"Stellt sicher, dass das Gebäude innen und außen auf höchstmöglichem Standard instand gehalten wird.",
+"Baut gute und effektive Arbeitsbeziehungen zu Wartungstechnikern und externen Dienstleistern auf.",
+"Stellt sicher, dass Service- und Küchenteam Lieferungen konsequent auf Qualität, Menge und Temperatur prüfen.",
+"Meldet Probleme mit Lieferungen oder Lieferanten an das Managementteam.",
+"Zeigt ein vollständiges Verständnis des gesamten Allergieverfahrens von Anfang bis Ende.",
+"Stellt durch Training, Coaching und sorgfältige Kontrolle sicher, dass jedes Teammitglied die Allergieverfahren sicher befolgt.",
+"Prüft Schädlingskontrollberichte und stellt sicher, dass alle Feststellungen zeitnah bearbeitet werden.",
+"Kommuniziert Maßnahmen effektiv an das Managementteam und stellt sicher, dass vorbeugende Maßnahmen dauerhaft umgesetzt bleiben.",
+"Kann die Durchführung aller täglichen und wöchentlichen Brandschutzkontrollen und Tests demonstrieren.",
+"Stellt sicher, dass jedes Teammitglied die Fluchtwege und Sammelpunkte kennt.",
+"Stellt sicher, dass alle täglichen Compliance-Kontrollen in Trail korrekt und fristgerecht abgeschlossen werden.",
+"Kann die Informationen für einen AFP-Bericht in Food Alert aufnehmen und an das Managementteam weitergeben."
+
+]
+
+},
+
+section2: {
+
+"Service, Gästeerlebnis und Pizzaqualität": [
+"Schafft eine Kultur der Exzellenz, in der jede Pizza und jedes Gästeerlebnis die Standards von Pizza Pilgrims widerspiegelt.",
+"Fördert in jeder Schicht außergewöhnliche Leistungen sowohl im Service als auch in der Küche."
+
+],
+
+"Sei der Pizza-Experte": [
+
+"Beherrscht alle Aspekte der Speisekarte sicher, einschließlich Speisen, Getränke, Weine, Biere, Cocktails und Kaffee.",
+"Nimmt regelmäßig an Food Audits teil, um Coaching und Weiterentwicklung rund um unser Angebot zu fördern.",
+"Stellt sicher, dass jede Pizza, die die Küche verlässt, den Vorgaben und Qualitätserwartungen entspricht.",
+"Coacht Teammitglieder und Köche, um Konsistenz und Standards kontinuierlich zu verbessern.",
+"Kann bei der Vorbereitung in der Küche unterstützen und alle Pizzen sicher nach Vorgabe fertigstellen."
+],
+"Steuerung des Passes und des Service": [
+"Sorgt für eine hervorragende Kommunikation zwischen Küche und Serviceteam.",
+"Stellt sicher, dass Speisen zur richtigen Zeit, mit der richtigen Temperatur und in der vorgeschriebenen Präsentation die Küche verlassen.",
+"Sorgt auch unter Druck für einen ruhigen, organisierten und effizienten Service."
+
+],
+
+"Pre-Shift-Meeting": [
+
+"Führt motivierende, lehrreiche und informative Pre-Shift-Meetings durch.",
+"Kommuniziert Tagesprioritäten, wirtschaftliche Ziele und Schichtschwerpunkte klar."
+
+],
+
+"Jeder ist Gastgeber": [
+
+"Überwacht Reservierungen, um die Gästezahl zu maximieren und gleichzeitig das Gästeerlebnis zu schützen.",
+"Nutzt Reservierungsdaten, um Personaleinsatz, Gästetaktung und betriebliche Effizienz zu optimieren.",
+"Stellt sicher, dass jeder Gast außergewöhnlich herzlich empfangen wird."
+
+],
+
+"Getränke": [
+
+"Verfügt über Expertenwissen zur Getränkekarte und allen Zubereitungsvorgaben.",
+"Stellt eine gleichbleibend hohe Qualität bei der Zubereitung aller Getränke sicher."
+
+],
+
+"Gästeerlebnis": [
+"Bearbeitet auch komplexe Anliegen von Gästen professionell und souverän.",
+"Kann Wiedergutmachungsreservierungen für Gäste kompetent betreuen und überwachen.",
+"Schafft durch aufmerksame und unerwartete Gesten der Großzügigkeit unvergessliche Gästeerlebnisse.",
+"Ermutigt das gesamte Team, Gelegenheiten zu erkennen, Gäste positiv zu überraschen.",
+"Kann eine stark frequentierte Schicht leiten, die ein großartiges Gästeerlebnis bietet und sich in positiven Google-Bewertungen widerspiegelt."
+
+],
+
+"Ein Team, ein Traum": [
+"Hilft dabei, ein engagiertes, motiviertes und leistungsstarkes Team zu entwickeln.",
+"Schützt und entwickelt die Kultur von Pizza Pilgrims weiter.",
+"Geht jeden Tag mit gutem Beispiel voran.",
+"Zeigt eine außergewöhnlich gute Kommunikation auf allen Ebenen des Unternehmens.",
+"Baut starke Beziehungen zum eigenen Team, zu anderen Pizzerien und zum Küchenteam auf."
+
+]
+
+},
+
+section3: {
+
+"Kommunikation": [
+"Passt den Kommunikationsstil an unterschiedliche Zielgruppen an, darunter Gäste, Teammitglieder, Führungskräfte und externe Partner."
+
+],
+
+"Betrieb der Pizzeria": [
+"Beherrscht alle betrieblichen Systeme sicher, einschließlich Kassensystem, Kartenterminals, Sona, Zonal, Reservierungsplattformen und Deliveroo.",
+"Versteht, wie der General Manager in allen Bereichen des Servicebetriebs unterstützt werden kann.",
+"Unterstützt bei Bedarf sicher und souverän jede Abteilung.",
+"Kann das Restaurant korrekt und innerhalb des vorgesehenen Zeitrahmens öffnen, sodass wir stets für die ersten Gäste bereit sind.",
+"Kennt die Öffnungszeiten des Restaurants und hält sie ein.",
+"Hält während jedes Service außergewöhnlich hohe „Brilliant at the Basics“-Standards ein."
+
+],
+
+"Rekrutierung und Entwicklung": [
+"Kann eine Probeschicht für ein potenzielles neues Teammitglied durchführen und dazu fundiertes Feedback geben.",
+"Kann die ersten Trainingswochen eines neuen Teammitglieds unterstützen und nutzt den All-Gravy-Kurs als Leitfaden."
+]
+},
+
+section4: {
+
+"Die Pilgerreise": [
+"Versteht die Geschichte der ursprünglichen Pilgerreise und der Pilgrimage 2.0.",
+"Kennt die Gründer, ihren Weg und ihre Vision.",
+"Versteht den Unternehmenszweck, die Säulen, die B-Corp-Zertifizierung und die Gründe für die Arbeitsweise von Pizza Pilgrims."
+
+],
+
+"Das Produkt": [
+
+"Zeigt gute Kenntnisse über Teig, Rezepte und Produktspezifikationen.",
+"Verfügt über ein fundiertes Verständnis der Herkunft unserer Zutaten und der Geschichten unserer Lieferanten.",
+"Verfügt über fundierte Kenntnisse zu Weinen, Cocktails, Bieren, alkoholfreien Getränken, Kaffee und allen Produktspezifikationen."
+
+],
+
+"Die Menschen": [
+
+"Versteht die Unterstützungsfunktionen von Pizza Base und wie sie zum Erfolg der Pizzerien beitragen.",
+"Versteht den Zweck der Academy und fördert aktiv die Entwicklung des Teams."
+
+]
+
+},
+
+section5: {
+
+"Das Geschäft": [
+"Versteht die wöchentlichen wirtschaftlichen KPIs, die montags berichtet werden, und weiß, wie sie beeinflusst werden können.",
+"Kann die täglichen Run-Rate-KPIs verstehen und für das Pre-Shift-Meeting zusammenstellen.",
+"Kann Waren bestellen, Rechnungen erfassen und das Managementteam bei der Kontrolle von Verschwendung unterstützen.",
+"Unterstützt den General Manager bei der Erreichung wirtschaftlicher Ziele."
+
+],
+
+"Liefergeschäft": [
+"Versteht die Deliveroo-KPIs.",
+"Kennt die verschiedenen Umsatzmöglichkeiten, die für Liefer- und Cateringangebote genutzt werden können.",
+"Unterstützt den General Manager und Head Chef beim Erreichen betrieblicher und wirtschaftlicher Ziele."
+
+],
+
+"Bewertungen": [
+
+"Versteht die Bedeutung von Gästefeedback.",
+"Kann die Schicht so führen, dass die Tagesziele des Unternehmens für Anzahl und Stimmung der Google-Bewertungen erreicht werden.",
+"Kennt die wöchentlichen Bewertungsziele, die erwarteten Ergebnisse und weiß, wie das Team zur Verbesserung der Gästezufriedenheit gecoacht wird."
+]
+}
+};
+function buildSection(sectionId){
+const container = document.getElementById(sectionId);
+const section = data[sectionId];
+for(const heading in section){
+
+const h = document.createElement("h3");
+
+h.textContent = heading;
+
+container.appendChild(h);
+
+section[heading].forEach(text => {
+
+const div = document.createElement("div");
+
+div.className = "item";
+
+const checkbox = document.createElement("input");
+
+checkbox.type = "checkbox";
+
+checkbox.className = "tick";
+
+const span = document.createElement("span");
+
+span.textContent = text;
+
+div.appendChild(checkbox);
+
+div.appendChild(span);
+
+container.appendChild(div);
+
+});
+
+}
+
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+
+const boxes = document.querySelectorAll(".tick");
+
+const checked = document.querySelectorAll(".tick:checked");
+
+const score = boxes.length
+
+? Math.round((checked.length / boxes.length) * 100)
+
+: 0;
+
+document.getElementById("score").textContent = score + "%";
+
+}
+
+function resetForm(){
+
+document.querySelectorAll("input").forEach(input => {
+
+if(input.type === "checkbox"){
+
+input.checked = false;
+
+}else{
+
+input.value = "";
+}
+});
+document.querySelectorAll("textarea").forEach(area => {
+area.value = "";
+});
+document.getElementById("score").textContent = "0%";
+}
+document.addEventListener("change", calculate);
+</script>
+</body>
+</html>

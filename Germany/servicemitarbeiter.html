@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive – Servicemitarbeiter</title>
+<style>
+body{margin:0;font-family:Arial;background:#dcefdc;color:#fff}.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url(background.jpg) center/cover;display:flex;flex-direction:column;justify-content:center;text-align:center}.logo{max-width:220px;margin:auto}.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}h2{border-bottom:2px solid #fff}input[type=text],textarea{width:100%;padding:12px;border-radius:6px;border:0;box-sizing:border-box}textarea{min-height:180px}.item{display:flex;gap:10px;background:#1f5c3d;padding:10px;margin:8px 0;border-radius:8px}button{padding:12px 18px}
+</style></head><body>
+<section class='page front'><img src='logo.png' class='logo'><h1>DEEP DIVE</h1><h2>SERVICEMITARBEITER</h2><div class='card'><h2>Was ist ein Deep Dive?</h2><p>Ein Deep Dive ist eine detaillierte Stellenbeschreibung, die Punkt für Punkt erklärt, wofür du in deiner Rolle verantwortlich bist. Während deiner gesamten Laufbahn kannst du alle Bereiche deiner Rolle überprüfen, um sicherzustellen, dass du sie sicher beherrschst, bevor du dich auf den nächsten Karriereschritt vorbereitest.</p></div><div class='card'><h2>So verwendest du den Deep Dive</h2><p>Dieses Dokument kann entweder als Momentaufnahme oder als Arbeitsdokument genutzt werden. Drucke es aus, lies jeden Punkt und hake ihn mit ✓ ab oder nummeriere ihn. Nimm dir gemeinsam mit deiner Führungskraft Zeit, um festzustellen, in welchen Bereichen du bereits besonders stark bist und woran du als Nächstes arbeiten solltest, um dich weiterzuentwickeln und in deiner Rolle wirklich zu glänzen.</p></div></section>
+<section class='page'><h2>Grundlegende Angaben</h2><div class='card'><label>Name</label><input type=text><label>Rolle</label><input type=text value='Servicemitarbeiter'><label>Standort</label><input type=text><label>Direkte Führungskraft</label><input type=text></div></section>
+<section class='page'><h2>Abschnitt 1 – Sicherheit</h2><div id='section1'></div></section>
+<section class='page'><h2>Abschnitt 2 – Gäste, Service und Qualität</h2><div id='section2'></div></section>
+<section class='page'><h2>Abschnitt 3 – Praktische Fähigkeiten</h2><div id='section3'></div></section>
+<section class='page'><h2>Abschnitt 4 – Pizza Pilgrims</h2><div id='section4'></div></section>
+<section class='page'><h2>Abschnitt 5 – Geschäftliches Verständnis</h2><div id='section5'></div></section>
+<section class='page'><h2>Abschlussübersicht</h2><div class='card'><div id='score' style='font-size:48px'>0%</div><button onclick='calc()'>Berechnen</button><button onclick='window.print()'>Drucken / Als PDF speichern</button><button onclick='resetF()'>Zurücksetzen</button></div><div class='card'><h2>Kommentare der Führungskraft</h2><textarea></textarea></div><div class='card'><h2>Nächste Schritte</h2><textarea></textarea></div></section>
+<script>
+const data = {
+"section1": {
+
+"Lebensmittelsicherheit und Compliance": [
+"Hat alle verpflichtenden Kurse in All Gravy abgeschlossen und beantwortet Fragen zu behördlichen Lebensmittelkontrollen sicher.",
+"Hat den Kurs Clean, Safe and Legal in All Gravy abgeschlossen.",
+"Überprüft täglich Haltbarkeitsdaten und Kennzeichnungen von Produkten, die im Gastraum oder an der Bar gelagert werden, zum Beispiel Oliven und Garnituren, und meldet Bedenken an die direkte Führungskraft.",
+"Zeigt ein gutes Verständnis für den sicheren Umgang mit Reinigungs- und Gefahrstoffen.",
+"Kann das Allergieverfahren von Anfang bis Ende korrekt durchführen und achtet dabei auf klare Kommunikation und sorgfältiges Arbeiten.",
+"Stellt sicher, dass die Checklisten für Öffnung und Schließung täglich vollständig ausgefüllt werden."
+],
+
+"Arbeits- und Gesundheitsschutz": [
+"Achtet jederzeit auf Sicherheit in der Küche und im Gastraum, erkennt und verhindert mögliche Unfälle und meldet Bedenken an die direkte Führungskraft.",
+"Versteht die Grundlagen der Schädlingsprävention und meldet Anzeichen eines Befalls an die direkte Führungskraft.",
+"Kennt die Brandschutzmaßnahmen, den Sammelplatz und die Fluchtwege."
+],
+
+"Betriebsabläufe": [
+"Meldet Probleme mit Geräten oder notwendige Reparaturen an die direkte Führungskraft.",
+"Stellt sicher, dass Lieferungen sorgfältig und effizient verräumt werden."
+]
+
+},
+
+"section2": {
+
+"Gästeerlebnis und Service": [
+"Übernimmt Verantwortung für jede Pizza, die den Pass verlässt, und stellt sicher, dass sie genau den Vorgaben entspricht.",
+"Weiß, wie die Pizza Bibles genutzt werden, um diese Standards zu erreichen.",
+"Koordiniert und kommuniziert, damit Speisen zur richtigen Zeit, mit der richtigen Temperatur und entsprechend der Vorgaben ausgegeben und an den richtigen Tisch oder Deliveroo-Fahrer übergeben werden.",
+"Kommuniziert gut mit dem Küchenteam und den Kolleginnen und Kollegen im Service, damit der Ablauf reibungslos funktioniert.",
+"Erscheint pünktlich zu jedem Pre-Shift-Briefing, bereitet sich mit einer positiven Einstellung auf die bevorstehende Schicht vor und unterstützt das Team.",
+"Stellt sicher, dass jede Person, die durch die Tür kommt, freundlich begrüßt wird.",
+"Prüft Reservierungen und platziert Gäste mithilfe unserer Reservierungsplattform.",
+"Kann Gästebeschwerden oder Fragen ruhig, professionell und angemessen bearbeiten, eine Lösung finden und dabei sicherstellen, dass die Führungskraft informiert wird.",
+"Fördert den Einsatz von Super Kind Bombs bei Gästen."
+],
+
+"Teamarbeit und Kommunikation": [
+"Trägt zu einer großartigen Teamatmosphäre bei und unterstützt die Unternehmenskultur, auf die wir stolz sind.",
+"Pflegt gute Arbeitsbeziehungen zu allen Kolleginnen und Kollegen bei Pizza Pilgrims."
+]
+
+},
+
+"section3": {
+
+"Praktische Fähigkeiten": [
+"Kann Englisch sprechen und geschriebene englische Texte verstehen.",
+"Passt den eigenen Kommunikationsstil an, um mit unterschiedlichen Gästen gut in Kontakt zu treten.",
+"Kennt alle Tischnummern, Bereiche, Laufwege in der Pizzeria sowie die hintere Küche.",
+"Weiß, wie alle Getränke auf der Karte entsprechend den Vorgaben zubereitet und präsentiert werden.",
+"Kann ein perfektes Pint Bier zapfen.",
+"Kann ein Fass sicher und effizient wechseln.",
+"Kann Getränketabletts sicher und effizient tragen.",
+"Weiß, wie zerbrochenes Glas sicher entsorgt wird.",
+"Kann Flaschen von Pilgrims Fizz und anderen Weinen korrekt und sicher öffnen."
+],
+
+"Systeme und Geräte": [
+"Kann die Kassensysteme korrekt und effizient bedienen.",
+"Kann die Kartenterminals korrekt und effizient bedienen.",
+"Kann das Deliveroo-Tablet korrekt bedienen und hält die vorgegebenen Abläufe für Fahrer ein.",
+"Weiß, wie die Spülmaschine bedient und gereinigt wird."
+],
+
+"Standards": [
+"Geht nie an einem Problem vorbei und achtet stets darauf, dass die Pizzeria bestmöglich aussieht.",
+"Ist jederzeit gepflegt und trägt eine saubere, vollständige und korrekte Uniform.",
+"Stellt während der gesamten Schicht sicher, dass Gläser und Besteck regelmäßig poliert werden."
+]
+
+},
+
+"section4": {
+
+"Die Geschichte von Pizza Pilgrims": [
+"Kennt die Geschichte der ursprünglichen Pilgrimage und der Pilgrimage 2.0.",
+"Kennt unsere Gründer und weiß, wer sie sind und welche Aufgaben sie haben.",
+"Hat den Kurs First Five Shifts in All Gravy abgeschlossen.",
+"Versteht unseren Unternehmenszweck, unsere Säulen, B Corp und warum wir tun, was wir tun."
+],
+
+"Produktkenntnisse": [
+"Verfügt über ein gutes Verständnis unseres Teigs, unserer Standards und unserer Pizzarezepte.",
+"Kennt die Herkunft und die Geschichten hinter unseren Zutaten.",
+"Kennt unsere Weine, Cocktails, Softdrinks und Kaffees sowie deren jeweilige Vorgaben."
+],
+
+"Unsere Mitarbeitenden": [
+"Versteht den Zweck der Academy und weiß, wie sie das Team und die Pizzeria dabei unterstützt, erfolgreich zu sein."
+]
+
+},
+
+"section5": {
+
+"Kaufmännisches Verständnis": [
+"Versteht in Grundzügen, was gute Ergebnisse bei unseren wirtschaftlichen Kennzahlen ausmacht und wie die eigene Rolle dazu beiträgt, Gäste glücklicher zu machen, damit sie wiederkommen und wir mehr Pizza verkaufen können.",
+"Verfügt über ein gutes Verständnis unserer Deliveroo-Kennzahlen.",
+"Versteht die Bedeutung von Gästefeedback, weiß, wie viele Bewertungen wir pro Woche anstreben, und kennt den Zielwert für eine gute Bewertung."
+]
+
+}
+
+};
+
+for(const id in data){
+let c=document.getElementById(id);
+
+for(const h in data[id]){
+c.innerHTML+=`<h3>${h}</h3>`;
+
+data[id][h].forEach(t=>{
+c.innerHTML+=`<div class="item"><input type="checkbox" class="tick"><span>${t}</span></div>`;
+});
+}
+}
+
+function calc(){
+let b=document.querySelectorAll(".tick");
+let c=document.querySelectorAll(".tick:checked");
+let score=b.length?Math.round((c.length/b.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetF(){
+document.querySelectorAll("input").forEach(i=>{
+i.type==="checkbox"?i.checked=false:i.value="";
+});
+
+document.querySelectorAll("textarea").forEach(t=>{
+t.value="";
+});
+
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calc);
+</script>
