@@ -14,7 +14,7 @@ body{
     color:white;
     background:
         linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
-        url("background.png") center/cover no-repeat;
+        url("../background.png") center/cover no-repeat;
 }
 
 .page{
@@ -77,36 +77,48 @@ h1{
     margin-bottom:0;
 }
 
-.language-buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-    max-width:620px;
-    margin:0 auto;
+.role-section{
+    margin-top:35px;
 }
 
-.language-button{
+.role-section h2{
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.role-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.role-button{
     display:block;
     background:white;
     color:#123d2b;
     text-decoration:none;
-    padding:20px;
+    padding:18px;
     border-radius:10px;
-    font-size:20px;
+    font-size:18px;
     font-weight:bold;
     transition:transform .2s, background .2s;
 }
 
-.language-button:hover{
+.role-button:hover{
     background:#dcefdc;
     transform:translateY(-2px);
 }
 
-.language-button span{
-    display:block;
-    margin-top:6px;
-    font-size:14px;
-    font-weight:normal;
+.home-link{
+    display:inline-block;
+    margin-top:30px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.home-link:hover{
+    text-decoration:underline;
 }
 
 @media(max-width:650px){
@@ -126,7 +138,7 @@ h1{
         padding:22px;
     }
 
-    .language-buttons{
+    .role-buttons{
         grid-template-columns:1fr;
     }
 }
@@ -138,11 +150,12 @@ h1{
 <main class="page">
     <div class="container">
 
-<img src="../logo.png" alt="Pizza Pilgrims">
+        <img src="../logo.png" class="logo" alt="Pizza Pilgrims">
+
         <h1>DEEP DIVES</h1>
 
         <p class="subtitle">
-            Your guide to becoming an expert in every Pizza Pilgrims role.
+            Select your role
         </p>
 
         <section class="card">
@@ -161,19 +174,30 @@ h1{
             </p>
         </section>
 
-        <nav class="language-buttons" aria-label="Choose a language">
+        <section class="role-section">
+            <h2>Front of House</h2>
 
-            <a class="language-button" href="english/index.html">
-                Continue in English
-                <span>View all English Deep Dives</span>
-            </a>
+            <div class="role-buttons">
+                <a class="role-button" href="waiter.html">Waiter</a>
+                <a class="role-button" href="supervisor.html">Supervisor</a>
+                <a class="role-button" href="assistantmanager.html">Assistant Manager</a>
+                <a class="role-button" href="generalmanager.html">General Manager</a>
+            </div>
+        </section>
 
-            <a class="language-button" href="German/index.html">
-                Auf Deutsch fortfahren
-                <span>Alle deutschen Deep Dives anzeigen</span>
-            </a>
+        <section class="role-section">
+            <h2>Kitchen</h2>
 
-        </nav>
+            <div class="role-buttons">
+                <a class="role-button" href="kp.html">KP / Prep Chef</a>
+                <a class="role-button" href="pizzachef.html">Pizza Chef</a>
+                <a class="role-button" href="seniorchef.html">Senior Chef</a>
+                <a class="role-button" href="secondchef.html">Second Chef</a>
+                <a class="role-button" href="headchef.html">Head Chef</a>
+            </div>
+        </section>
+
+        <a class="home-link" href="../index.html">← Back to language selection</a>
 
     </div>
 </main>
