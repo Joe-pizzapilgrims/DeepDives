@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive - Assistant Manager</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#dcefdc;
+color:white;
+}
+.page{
+min-height:100vh;
+padding:40px;
+box-sizing:border-box;
+background:#123d2b;
+page-break-after:always;
+}
+.front{
+background:
+linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),
+url("../background.jpg") center/cover no-repeat;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+.logo{
+max-width:220px;
+margin:0 auto 30px;
+}
+.card{
+background:#1f5c3d;
+padding:25px;
+border-radius:12px;
+margin:20px 0;
+}
+h1{
+font-size:46px;
+margin:10px 0;
+}
+h2{
+border-bottom:2px solid white;
+padding-bottom:10px;
+}
+h3{
+margin-top:25px;
+}
+input[type=text]{
+width:100%;
+padding:12px;
+margin:8px 0 18px;
+border:0;
+border-radius:6px;
+font-size:16px;
+box-sizing:border-box;
+}
+textarea{
+width:100%;
+min-height:180px;
+padding:15px;
+font-size:16px;
+font-family:Arial,sans-serif;
+border:0;
+border-radius:8px;
+box-sizing:border-box;
+resize:vertical;
+background:white;
+color:#222;
+}
+.item{
+display:flex;
+align-items:flex-start;
+gap:12px;
+background:#1f5c3d;
+margin:8px 0;
+padding:12px;
+border-radius:8px;
+}
+.item input{
+transform:scale(1.3);
+margin-top:3px;
+}
+button{
+background:white;
+color:#123d2b;
+border:0;
+padding:14px 20px;
+margin:10px 8px 0 0;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+.result{
+font-size:48px;
+font-weight:bold;
+}
+@media print{
+button{
+display:none;
+}
+.page{
+min-height:auto;
+}
+input[type=text],
+textarea{
+border:1px solid #aaa;
+}
+}
+</style>
+</head>
+<body>
+<section class="page front">
+<img src="../logo.png" class="logo" alt="Pizza Pilgrims logo">
+<h1>DEEP DIVE</h1>
+<h2>ASSISTANT MANAGER</h2>
+<div class="card">
+<h2>What is a Deep Dive?</h2>
+<p>
+A Deep Dive is a broken down job description, line by line, that tells you everything that your job role is responsible for. At any point during your career, you can check out all the aspects of your role to make sure you’re an expert before preparing to move onto the next role.
+</p>
+</div>
+<div class="card">
+<h2>How to use the Deep Dive</h2>
+<p>
+This can work as either a snapshot or working document. Print, read and either tick ✓, or number each line. Spend some time with your manager to gauge how many of these areas you are already a champion in, and what you need to do next to fine tune other areas so you can really excel.
+</p>
+
+</div>
+
+</section>
+
+<section class="page">
+
+<h2>Basic Details</h2>
+
+<div class="card">
+
+<label>Name</label>
+
+<input type="text" id="employeeName">
+
+<label>Role</label>
+
+<input type="text" id="assessmentType" value="Assistant Manager Deep Dive">
+
+<label>Site</label>
+
+<input type="text" id="site">
+
+<label>Line Manager</label>
+
+<input type="text" id="assessor">
+
+</div>
+
+</section>
+
+<section class="page">
+
+<h2>Section 1 – All About Safety</h2>
+
+<div id="section1"></div>
+
+</section>
+
+<section class="page">
+
+<h2>Section 2 – All About the Guest, Service & Quality</h2>
+
+<div id="section2"></div>
+
+</section>
+
+<section class="page">
+
+<h2>Section 3 – The Practical Skills</h2>
+
+<div id="section3"></div>
+
+</section>
+
+<section class="page">
+
+<h2>Section 4 – All About Pizza Pilgrims</h2>
+
+<div id="section4"></div>
+
+</section>
+
+<section class="page">
+
+<h2>Section 5 – All About Business</h2>
+
+<div id="section5"></div>
+
+</section>
+
+<section class="page">
+
+<h2>Completion Summary</h2>
+
+<div class="card">
+
+<p><strong>Total completion:</strong></p>
+
+<div class="result" id="score">0%</div>
+
+<button onclick="calculate()">Calculate Score</button>
+
+<button onclick="window.print()">Print / Save as PDF</button>
+
+<button onclick="resetForm()">Reset</button>
+<button onclick="submitAssessment()">Submit Assessment</button>
+
+</div>
+
+<div class="card">
+
+<h2>Manager Comments</h2>
+
+<textarea id="developmentFocus" placeholder="Strengths, observations and coaching comments..."></textarea>
+
+</div>
+
+<div class="card">
+
+<h2>Next Steps</h2>
+
+<textarea id="finalComments" placeholder="Agreed actions, training priorities and follow-up dates..."></textarea>
+
+</div>
+
+</section>
+
+<script>
+
+const data = {
+
+section1: {
+
+"Health and Safety": [
+
+"Carries out regular walk-arounds of the kitchen and restaurant to ensure they remain clean, safe and legally compliant.",
+
+"Takes full ownership of the Food Alert audits, communicating results, priorities and action plans with the management team and wider team.",
+
+"Understands audit scores in detail, delegates actions effectively and ensures all issues are resolved promptly.",
+
+"Ensures the pizzeria is consistently clean, safe and legal, in line with our HACCP guidelines.",
+
+"Ensures daily checks of shelf lives and product labelling are completed.",
+
+"Coaches the team on correct procedures and identifies any falsified or extended shelf lives immediately.",
+
+"Regularly reviews compliance records within the Food Safety Monitoring System and reviews HACCP plans annually.",
+
+"Investigates and deals appropriately with any inaccurate or falsified temperature records.",
+
+"Demonstrates expert knowledge of HACCP principles, food safety procedures and compliance recording.",
+
+"Ensures all COSHH procedures are followed correctly.",
+
+"Ensures every team member is fully trained and compliant.",
+
+"Ensures every new team member completes all required risk assessments during induction and completes their All Gravy compliance within the required timeframe.",
+
+"Creates a culture where safety is prioritised across both FOH and BOH.",
+
+"Coaches managers and team members to prevent accidents and maintain excellent standards.",
+
+"Proactively reports, manages and follows through on all equipment and maintenance issues via the Maintenance Portal.",
+
+"Ensures the building is maintained to the highest possible standard inside and out.",
+
+"Builds effective relationships with maintenance engineers and contractors.",
+
+"Ensures the FOH and BOH teams consistently check deliveries for quality, quantity and temperature.",
+
+"Works closely with suppliers, partners and the Food Team to resolve any issues.",
+
+"Demonstrates complete understanding of the allergy procedure from beginning to end.",
+
+"Ensures every member of the team confidently follows allergy procedures through training, coaching and due diligence.",
+
+"Reviews pest control reports and ensures all findings are actioned promptly.",
+
+"Communicates actions effectively with the management team and ensures preventative measures remain in place.",
+
+"Demonstrates how to complete all daily and weekly fire safety checks and testing.",
+
+"Ensures every team member understands fire safety procedures, evacuation routes and assembly points.",
+
+"Conducts and records regular fire evacuation drills every six months.",
+
+"Ensures all daily compliance checks are completed accurately and on time in Trail.",
+
+"Delegates responsibilities appropriately while maintaining overall accountability.",
+
+"Regularly reviews compliance records to protect both guests and team members."
+
+]
+
+},
+
+section2: {
+
+"All About Service, Guest Experience & Pizza Quality": [
+
+"Creates a culture of excellence where every pizza and every guest experience reflects Pizza Pilgrims’ standards.",
+
+"Drives exceptional performance across both FOH and BOH every single shift."
+
+],
+
+"Be the Pizza Expert": [
+
+"Is the leading expert on every aspect of the menu, including food, drinks, wines, beers, cocktails and coffee.",
+
+"Conducts regular food audits to promote coaching and development around our menu.",
+
+"Plans ahead for menu launches, ensuring stock, training and tastings are delivered successfully across the whole team.",
+
+"Ensures every pizza leaving the kitchen meets specification and quality expectations.",
+
+"Coaches managers and chefs to continually improve consistency and standards."
+
+],
+
+"Controlling the Pass / Service": [
+
+"Maintains excellent communication between kitchen and floor teams.",
+
+"Ensures food leaves the kitchen at the correct time, temperature and presentation standard.",
+
+"Creates calm, organised and efficient service under pressure."
+
+],
+
+"Pre-Shift": [
+
+"Delivers engaging, educational and informative pre-shift meetings.",
+
+"Clearly communicates daily priorities, commercial goals and daily focuses."
+
+],
+
+"Everyone's a Host": [
+
+"Oversees bookings to maximise covers while protecting the guest experience.",
+
+"Uses booking data to optimise staffing, pacing and operational efficiency.",
+
+"Ensures every guest receives an exceptional welcome."
+
+],
+
+"Drinks": [
+
+"Maintains expert knowledge of the drinks menu and specifications.",
+
+"Ensures consistent quality across all beverage preparation."
+
+],
+
+"Resolving Guest Complaints": [
+
+"Handles complex guest concerns professionally and confidently.",
+
+"Monitors and maintains the restaurant email inbox and manages any complaint issues that may come through."
+
+],
+
+"Super Kind Bombs!": [
+
+"Creates memorable guest experiences through thoughtful and unexpected acts of generosity.",
+
+"Encourages the whole team to recognise opportunities to delight guests."
+
+],
+
+"One Team, One Dream": [
+
+"Builds an engaged, motivated and high-performing team.",
+
+"Protects and develops the Pizza Pilgrims culture.",
+
+"Leads by example every day.",
+
+"Demonstrates exceptional communication across all levels of the business.",
+
+"Builds strong relationships with teams, other pizzerias and Pizza Base."
+
+]
+
+},
+
+section3: {
+
+"Communication": [
+
+"Adapts communication style to different audiences, including guests, team members, senior leaders and external partners."
+
+],
+
+"Systems": [
+
+"Is an expert user of all operational systems, including tills, card machines, Sona, Zonal, booking platforms and Deliveroo.",
+
+"Ensures managers and team members are fully trained on all systems."
+
+],
+
+"Pizzeria Operations": [
+
+"Understands how to support the General Manager in all aspects of FOH operations.",
+
+"Confidently supports every department whenever required.",
+
+"Maintains exceptional operational standards across every service."
+
+],
+
+"Recruitment & Development": [
+
+"Follows the Pizza Pilgrims standard recruitment model using the correct platforms.",
+
+"Ensures the recruitment process is compliant with UK legal standards.",
+
+"Is an expert in Pilgrims Pathways, The Academy and other tools used to develop our teams."
+
+],
+
+"ER & HR": [
+
+"Demonstrates a strong understanding of UK employment law and company people policies, ensuring all team members are managed fairly, consistently and legally."
+
+]
+
+},
+
+section4: {
+
+"The Pilgrimage": [
+
+"Understands the story of the original Pilgrimage and Pilgrimage 2.0.",
+
+"Knows the founders, their journey and their vision.",
+
+"Understands the company purpose, pillars, B Corp certification and the reasons behind how Pizza Pilgrims operates."
+
+],
+
+"The Product": [
+
+"Demonstrates expert knowledge of dough, recipes and specifications.",
+
+"Has a strong understanding of ingredient provenance and supplier stories.",
+
+"Has strong knowledge of wines, cocktails, beers, soft drinks, coffee and all product specifications."
+
+],
+
+"The People": [
+
+"Understands the Pizza Base support functions and how they help pizzerias succeed.",
+
+"Understands the purpose of The Academy and actively promotes team development."
+
+]
+
+},
+
+section5: {
+
+"The Business": [
+
+"Understands the commercial performance of the restaurant.",
+
+"Knows how labour, sales, food quality, guest experience and profitability all contribute to success.",
+
+"Supports the General Manager in delivering commercial objectives."
+
+],
+
+"Delivery": [
+
+"Understands Deliveroo KPIs.",
+
+"Has good knowledge of all off-site delivery and catering opportunities in the local area.",
+
+"Supports the General Manager and Head Chef in achieving operational and commercial targets."
+
+],
+
+"Reviews": [
+
+"Understands the importance of guest feedback.",
+
+"Can lead the team to achieve the company’s target for Google reviews and sentiment.",
+
+"Knows weekly review targets, expected scores and how to coach the team to improve guest satisfaction."
+
+]
+
+}
+
+};
+
+function buildSection(sectionId){
+
+const container = document.getElementById(sectionId);
+
+const section = data[sectionId];
+
+for(const heading in section){
+
+const h = document.createElement("h3");
+
+h.textContent = heading;
+
+container.appendChild(h);
+
+section[heading].forEach(text => {
+
+const div = document.createElement("div");
+
+div.className = "item";
+
+const checkbox = document.createElement("input");
+
+checkbox.type = "checkbox";
+
+checkbox.className = "tick";
+
+const span = document.createElement("span");
+
+span.textContent = text;
+
+div.appendChild(checkbox);
+
+div.appendChild(span);
+
+container.appendChild(div);
+
+});
+
+}
+
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+
+const boxes = document.querySelectorAll(".tick");
+
+const checked = document.querySelectorAll(".tick:checked");
+
+const score = boxes.length
+
+? Math.round((checked.length / boxes.length) * 100)
+
+: 0;
+
+document.getElementById("score").textContent = score + "%";
+
+}
+
+function resetForm(){
+
+document.querySelectorAll("input").forEach(input => {
+
+if(input.type === "checkbox"){
+
+input.checked = false;
+
+}else{
+
+input.value = "";
+
+}
+
+});
+
+document.querySelectorAll("textarea").forEach(area => {
+
+area.value = "";
+
+});
+
+document.getElementById("score").textContent = "0%";
+
+}
+
+document.addEventListener("change", calculate);
+
+function submitAssessment(){
+calculate();
+const url='https://docs.google.com/forms/d/e/1FAIpQLSc6LobBF21L8aySxavieFWM8mViKLyTvT5ENmeQz7gS08TNNA/viewform?usp=pp_url'
++'&entry.621187689='+encodeURIComponent(document.getElementById('employeeName').value)
++'&entry.1662775296='+encodeURIComponent(document.getElementById('assessmentType').value)
++'&entry.1250435977='+encodeURIComponent(document.getElementById('site').value)
++'&entry.729805916='+encodeURIComponent(document.getElementById('assessor').value)
++'&entry.767272867='+new Date().toISOString().slice(0,10)
++'&entry.1528918085='+encodeURIComponent(document.getElementById('score').textContent.replace('%',''))
++'&entry.219193441='+encodeURIComponent(document.getElementById('developmentFocus').value)
++'&entry.906034061='+encodeURIComponent(document.getElementById('finalComments').value);
+window.open(url,'_blank');
+}
+
+</script>
+
+</body>
+
+</html>
