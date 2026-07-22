@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive - KP / Prep Chef</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#dcefdc;color:white}
+.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}
+.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url("../background.jpg") center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.logo{max-width:220px;margin:0 auto 30px}
+.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}
+h1{font-size:46px;margin:10px 0}
+h2{border-bottom:2px solid white;padding-bottom:10px}
+h3{margin-top:25px}
+input[type=text]{width:100%;padding:12px;margin:8px 0 18px;border:0;border-radius:6px;font-size:16px;box-sizing:border-box}
+textarea{width:100%;min-height:180px;padding:15px;font-size:16px;font-family:Arial,sans-serif;border:0;border-radius:8px;box-sizing:border-box;resize:vertical;background:white;color:#222}
+.item{display:flex;gap:12px;background:#1f5c3d;margin:8px 0;padding:12px;border-radius:8px}
+.item input{transform:scale(1.3)}
+button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px 0 0;border-radius:8px;font-weight:bold;cursor:pointer}
+.result{font-size:48px;font-weight:bold}
+@media print{button{display:none}.page{min-height:auto}input[type=text],textarea{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+
+<section class="page front">
+<img src="../logo.png" class="logo" alt="Logo">
+<h1>DEEP DIVE</h1>
+<h2>KP / PREP CHEF</h2>
+<div class="card">
+<h2>What is a Deep Dive?</h2>
+<p>A Deep Dive is a broken down job description, line by line, that tells you everything that your job role is responsible for. At any point during your career, you can check out all the aspects of your role to make sure you’re an expert before preparing to move onto the next role.</p>
+</div>
+<div class="card">
+<h2>How to use the Deep Dive</h2>
+<p>This can work as either a snapshot or working document. Print, read and either tick ✓, or number each line. Spend some time with your manager to gauge how many of these areas you are already a champion in, and what you need to do next to fine tune other areas so you can really excel.</p>
+</div>
+</section>
+
+<section class="page">
+<h2>Basic Details</h2>
+<div class="card">
+<label>Name</label><input type="text" id="employeeName">
+<label>Role</label><input type="text" id="assessmentType" value="KP / Prep Chef Deep Dive">
+<label>Site</label><input type="text" id="site">
+<label>Line Manager</label><input type="text" id="assessor">
+</div>
+</section>
+
+<section class="page"><h2>Section 1 – All About Safety</h2><div id="section1"></div></section>
+<section class="page"><h2>Section 2 – All About Service & Quality</h2><div id="section2"></div></section>
+<section class="page"><h2>Section 3 – The Practical Skills</h2><div id="section3"></div></section>
+<section class="page"><h2>Section 4 – All About Pizza Pilgrims</h2><div id="section4"></div></section>
+<section class="page"><h2>Section 5 – All About Business</h2><div id="section5"></div></section>
+
+<section class="page">
+<h2>Completion Summary</h2>
+<div class="card">
+<p><strong>Total completion:</strong></p>
+<div class="result" id="score">0%</div>
+<button onclick="calculate()">Calculate Score</button>
+<button onclick="window.print()">Print / Save as PDF</button>
+<button onclick="resetForm()">Reset</button>
+<button type="button" onclick="submitAssessment()">Submit Assessment</button>
+</div>
+<div class="card"><h2>Manager Comments</h2><textarea placeholder="Strengths, observations and coaching comments..." id="developmentFocus"></textarea></div>
+<div class="card"><h2>Next Steps</h2><textarea placeholder="Agreed actions, training priorities and follow-up dates..." id="finalComments"></textarea></div>
+</section>
+
+<script>
+const data = {
+"section1": {
+
+"Food Safety & Compliance": [
+"Compliance courses completed in All Gravy and has confidence in EHO questions.",
+"Has completed Clean, Safe and Legal course on All Gravy.",
+"Daily checks on shelf lives and labelling on products stored in the Kitchen, communicating any concerns with your line manager.",
+"Demonstrates a good understanding of COSHH.",
+"Proficient in how to store allergen products in the kitchn.",
+"Ensures opening and closing checklists are completed daily."
+],
+
+"Health & Safety": [
+"Aware of safety in the kitchen at all times, monitoring and preventing accidents, reporting any concerns with your line manager.",
+"Understands Pest Control – how to prevent pests and reports signs of activity to your line manager.",
+"Understanding what great storage in the walk in fridge and dry store looks like.",
+"Understands fire safety practices, fire evacuation point and fire safety routes."
+],
+
+"Operations": [
+"Reports any equipment and maintenance issues to your line manager.",
+"Ensures deliveries are put away carefully and efficiently."
+]
+
+},
+
+"section2": {
+
+"Guest Experience & Service": [
+"Takes pride and ownership of every piece of prep that the chef assigns daily.",
+"Understands how to use the spec Bibles to achieve this.",
+"proficient in supporting the pizzeria and basic knowledge of how to build our sides & salads .",
+"Has good communication with the kitchen & floor team to ensure smooth service.",
+"Turns up on time for every shift with a positive mentality to prepare for the shift ahead and supports teammates.",
+],
+
+"Teamwork & Communication": [
+"Contributes to building a great team atmosphere and maintains the culture we are so proud of.",
+"Demonstrates good working relationships with all Pizza Pilgrims colleagues."
+]
+},
+
+"section3": {
+
+"Practical Skills": [
+"Can speak and understand written English.",
+"Able to support the FOH by restocking plates and cutlery in the pizzeria for use with the guests.",
+"Knows how to build and carry out all the batch and prep to specification.",
+"Knows how to dispose of broken glass safely.",
+"Can manage the KP area section during busy periods.",
+],
+
+"Standards": [
+"Never walks past a problem and always takes pride in keeping the pizzeria looking its best.",
+"Is well presented with a clean and correct uniform at all times.",
+"Keeps on top of the taste and KP area throughout the shift and closing."
+]
+},
+
+"section4": {
+
+"The Pizza Pilgrims Story": [
+"Knows the story of the original Pilgrimage.",
+"Knows our founders, who they are and what they do.",
+"Has completed the First Five Shifts course on All Gravy.",
+"Understands our company purpose, our pillars, B Corp and why we do what we do."
+]
+},
+
+"section5": {
+
+"Commercial Awareness": [
+"A basic understanding of how to manage waste and support the head chef in delivering a good food stock."
+]
+}
+};
+function buildSection(sectionId){
+const container=document.getElementById(sectionId);
+const section=data[sectionId];
+for(const heading in section){
+const h=document.createElement("h3");
+h.textContent=heading;
+container.appendChild(h);
+section[heading].forEach(text=>{
+const div=document.createElement("div");
+div.className="item";
+div.innerHTML='<input type="checkbox" class="tick"><span>'+text+'</span>';
+container.appendChild(div);
+});
+}
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+const boxes=document.querySelectorAll(".tick");
+const checked=document.querySelectorAll(".tick:checked");
+const score=boxes.length?Math.round((checked.length/boxes.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetForm(){
+document.querySelectorAll("input").forEach(input=>{if(input.type==="checkbox"){input.checked=false}else{input.value=""}});
+document.querySelectorAll("textarea").forEach(area=>area.value="");
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calculate);
+
+function submitAssessment(){
+calculate();
+const requiredFields=[
+['employeeName','Employee Name'],
+['site','Site'],
+['assessor','Assessor Name']
+];
+for(const [id,label] of requiredFields){
+const field=document.getElementById(id);
+if(!field.value.trim()){
+alert('Please complete '+label+' before submitting.');
+field.focus();
+return;
+}
+}
+const url='https://docs.google.com/forms/d/e/1FAIpQLSc6LobBF21L8aySxavieFWM8mViKLyTvT5ENmeQz7gS08TNNA/viewform?usp=pp_url'
++'&entry.621187689='+encodeURIComponent(document.getElementById('employeeName').value)
++'&entry.1662775296='+encodeURIComponent(document.getElementById('assessmentType').value)
++'&entry.1250435977='+encodeURIComponent(document.getElementById('site').value)
++'&entry.729805916='+encodeURIComponent(document.getElementById('assessor').value)
++'&entry.767272867='+new Date().toISOString().slice(0,10)
++'&entry.1528918085='+encodeURIComponent(document.getElementById('score').textContent.replace('%',''))
++'&entry.219193441='+encodeURIComponent(document.getElementById('developmentFocus').value)
++'&entry.906034061='+encodeURIComponent(document.getElementById('finalComments').value);
+window.open(url,'_blank');
+}
+
+</script>
+</body>
+</html>

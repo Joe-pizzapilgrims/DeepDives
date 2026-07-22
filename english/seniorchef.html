@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep Dive - Senior Chef</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#dcefdc;color:white}
+.page{min-height:100vh;padding:40px;box-sizing:border-box;background:#123d2b;page-break-after:always}
+.front{background:linear-gradient(rgba(18,61,43,.75),rgba(18,61,43,.75)),url("../background.jpg") center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.logo{max-width:220px;margin:0 auto 30px}
+.card{background:#1f5c3d;padding:25px;border-radius:12px;margin:20px 0}
+h1{font-size:46px;margin:10px 0}
+h2{border-bottom:2px solid white;padding-bottom:10px}
+h3{margin-top:25px}
+input[type=text]{width:100%;padding:12px;margin:8px 0 18px;border:0;border-radius:6px;font-size:16px;box-sizing:border-box}
+textarea{width:100%;min-height:180px;padding:15px;font-size:16px;font-family:Arial,sans-serif;border:0;border-radius:8px;box-sizing:border-box;resize:vertical;background:white;color:#222}
+.item{display:flex;gap:12px;background:#1f5c3d;margin:8px 0;padding:12px;border-radius:8px}
+.item input{transform:scale(1.3)}
+button{background:white;color:#123d2b;border:0;padding:14px 20px;margin:10px 8px 0 0;border-radius:8px;font-weight:bold;cursor:pointer}
+.result{font-size:48px;font-weight:bold}
+@media print{button{display:none}.page{min-height:auto}input[type=text],textarea{border:1px solid #aaa}}
+</style>
+</head>
+<body>
+
+<section class="page front">
+<img src="../logo.png" class="logo" alt="Logo">
+<h1>DEEP DIVE</h1>
+<h2>SENIOR CHEF</h2>
+<div class="card">
+<h2>What is a Deep Dive?</h2>
+<p>A Deep Dive is a broken down job description, line by line, that tells you everything that your job role is responsible for. At any point during your career, you can check out all the aspects of your role to make sure you’re an expert before preparing to move onto the next role.</p>
+</div>
+<div class="card">
+<h2>How to use the Deep Dive</h2>
+<p>This can work as either a snapshot or working document. Print, read and either tick ✓, or number each line. Spend some time with your manager to gauge how many of these areas you are already a champion in, and what you need to do next to fine tune other areas so you can really excel.</p>
+</div>
+</section>
+
+<section class="page">
+<h2>Basic Details</h2>
+<div class="card">
+<label>Name</label><input type="text" id="employeeName">
+<label>Role</label><input type="text" id="assessmentType" value="Senior Chef Deep Dive">
+<label>Site</label><input type="text" id="site">
+<label>Line Manager</label><input type="text" id="assessor">
+</div>
+</section>
+
+<section class="page"><h2>Section 1 – All About Safety</h2><div id="section1"></div></section>
+<section class="page"><h2>Section 2 – All About Service & Quality</h2><div id="section2"></div></section>
+<section class="page"><h2>Section 3 – The Practical Skills</h2><div id="section3"></div></section>
+<section class="page"><h2>Section 4 – All About Pizza Pilgrims</h2><div id="section4"></div></section>
+<section class="page"><h2>Section 5 – All About Business</h2><div id="section5"></div></section>
+
+<section class="page">
+<h2>Completion Summary</h2>
+<div class="card">
+<p><strong>Total completion:</strong></p>
+<div class="result" id="score">0%</div>
+<button onclick="calculate()">Calculate Score</button>
+<button onclick="window.print()">Print / Save as PDF</button>
+<button onclick="resetForm()">Reset</button>
+<button type="button" onclick="submitAssessment()">Submit Assessment</button>
+</div>
+<div class="card"><h2>Manager Comments</h2><textarea placeholder="Strengths, observations and coaching comments..." id="developmentFocus"></textarea></div>
+<div class="card"><h2>Next Steps</h2><textarea placeholder="Agreed actions, training priorities and follow-up dates..." id="finalComments"></textarea></div>
+</section>
+
+<script>
+const data = {
+
+"section1": {
+
+"Food Safety & Compliance": [
+
+"Has completed the Level 2 Food Safety compliance course in All Gravy and can confidently answer questions relating to the Health & Safety System.",
+"Carries out regular kitchen walk-arounds to ensure the area remains clean, safe and legally compliant.",
+"Completes daily shelf-life, labelling and temperature checks and immediately addresses any inaccurate or falsified records.",
+"Demonstrates a thorough understanding of HACCP principles, food safety procedures and compliance recording.",
+"Ensures daily Trail records are completed accurately and delegates compliance tasks appropriately."
+
+],
+
+"Health, Safety & Risk": [
+
+"Understands COSHH requirements and ensures the BOH team are trained and compliant.",
+"Support with the traning of new chefs, using the AG compliance courses as guidance.",
+"Promotes safe working practices and coaches the team to prevent accidents.",
+"Demonstrates a full understanding of allergy procedures and ensures the BOH team follow them confidently.",
+"Understands pest prevention procedures and ensures findings from pest control reports are actioned.",
+"Understands kitchen fire safety procedures, evacuation routes and assembly points."
+
+],
+
+"Kitchen Operations": [
+"Reports equipment faults and maintenance issues promptly and works effectively with maintenance engineers.",
+"Checks deliveries for quality, quantity and temperature and escalates any concerns appropriately.",
+"Maintains excellent storage standards, including stock rotation, labelling and refrigeration.",
+"Supports the Head Chef in maintaining outstanding operational, food safety and hygiene standards throughout the kitchen."
+]
+
+},
+
+"section2": {
+
+"Food Quality & Product Expertise": [
+"Consistently delivers pizzas and other menu items to Pizza Pilgrims specifications.",
+"Ensures every pizza leaves the pass with the correct appearance, temperature, ingredients and presentation.",
+"Identifies quality issues quickly and coaches chefs to improve consistency.",
+"Supports the Head Chef with new specials through effective preparation, ordering, training and tastings.",
+"Shares product knowledge with the FOH team to improve confidence, quality and understanding."
+
+],
+
+"Service Leadership & Organisation": [
+"Demonstrates excellent coordination and communication in the pizzeria and over the pass during busy services.",
+"Ensures food leaves the kitchen at the correct time, temperature and specification.",
+"Maintains strong communication between the BOH, FOH and management teams.",
+"Ensures the kitchen is fully prepared and organised before every shift.",
+"Maintains organised stockrooms and refrigeration areas with all products stored correctly.",
+"Contributes actively to pre-shift meetings by communicating priorities and motivating the kitchen team."
+],
+
+"Guest Experience & Team Culture": [
+"Encourages the BOH team to contribute positively to every guest’s experience.",
+"Welcomes and engages with guests warmly whenever possible.",
+"Looks for opportunities to create memorable experiences through Super kind bombs",
+"Builds a positive, supportive and high-performing kitchen culture.",
+"Leads by example and protects Pizza Pilgrims’ standards, values and culture."
+]
+
+},
+
+"section3": {
+
+"Pizza Skills": [
+"Demonstrates expert dough handling and stretching techniques.",
+"Produces every pizza to spec with correct portions, presentation and consistency.",
+"Maintains speed during busy services without compromising quality.",
+"Controls the pizza oven confidently and delivers consistently excellent cooking standards.",
+"Supports and coaches other chefs working on dough, pizza building and oven management."
+
+],
+
+"Kitchen Operations & Standards": [
+
+"Completes food preparation accurately and ensures ingredients meet Pizza Pilgrims specifications.",
+"Uses, cleans and maintains all kitchen equipment correctly and safely.",
+"Demonstrates kitchen skills and promotes safe working practices.",
+"Can place orders, process invoices and put away deliverying complying with legal standards.",
+"Completes daily, weekly and deep-cleaning tasks to an exceptional standard.",
+"Organises the kitchen effectively, remains calm under pressure and prioritises tasks to support the whole team."
+
+],
+
+"Coaching & Leadership": [
+"Coaches Trainee, Level 1, Level 2 to improve confidence, consistency and performance.",
+"Provides regular, constructive feedback and supports individual development.",
+"Supports recruitment and training of new BOH team members.",
+"Leads confidently during busy services and in the Head Chef’s absence.",
+
+]
+
+},
+"section4": {
+
+"The Pizza Pilgrims Story": [
+"Understands the Pizza Pilgrims story, including the original Pilgrimage and Pilgrimage 2.0.",
+"Knows the founders, company purpose, pillars and B Corp commitments.",
+"Shares the Pizza Pilgrims purpose and values confidently with the team."
+],
+
+"Product Knowledge": [
+"Demonstrates expert knowledge of dough, recipes, specifications and ingredient provenance.",
+"Ensures food quality remains consistently excellent across the kitchen.",
+"Acts as a role model for product knowledge and supports the development of junior chefs."
+],
+
+"Our People": [
+"Understands the Food Team support functions and how they help pizzerias succeed.",
+"Builds positive relationships with FOH, BOH, management and wider company teams."
+]
+
+},
+
+"section5": {
+
+"Commercial Awareness": [
+"Understands the weekly KPIs affecting kitchen performance.",
+"Recognises how food quality, waste, labour efficiency, speed of service and guest feedback affect business results.",
+"Support the Head Chef in improving kitchen labour efficiency & performance.",
+"Takes ownership of food quality to help deliver consistently excellent guest reviews."
+],
+
+"Food Cost, Waste & Delivery": [
+"Minimises food waste through accurate preparation, portion control, stock rotation and storage.",
+"Supports the Head Chef in protecting food cost and gross profit.",
+"Supports the kitchen in consistently achieving Deliveroo and delivery performance targets."
+],
+
+"Leadership & Development": [
+"Leads by example and takes responsibility for maintaining Pizza Pilgrims’ standards and culture.",
+"Develops future chefs and kitchen leaders through clear training and succession planning.",
+"Maintains Pizza Pilgrims’ culture, standards and values every day."
+]
+}
+};
+function buildSection(sectionId){
+const container=document.getElementById(sectionId);
+const section=data[sectionId];
+for(const heading in section){
+const h=document.createElement("h3");
+h.textContent=heading;
+container.appendChild(h);
+section[heading].forEach(text=>{
+const div=document.createElement("div");
+div.className="item";
+div.innerHTML='<input type="checkbox" class="tick"><span>'+text+'</span>';
+container.appendChild(div);
+});
+}
+}
+
+Object.keys(data).forEach(buildSection);
+
+function calculate(){
+const boxes=document.querySelectorAll(".tick");
+const checked=document.querySelectorAll(".tick:checked");
+const score=boxes.length?Math.round((checked.length/boxes.length)*100):0;
+document.getElementById("score").textContent=score+"%";
+}
+
+function resetForm(){
+document.querySelectorAll("input").forEach(input=>{if(input.type==="checkbox"){input.checked=false}else{input.value=""}});
+document.querySelectorAll("textarea").forEach(area=>area.value="");
+document.getElementById("score").textContent="0%";
+}
+
+document.addEventListener("change",calculate);
+
+function submitAssessment(){
+calculate();
+const requiredFields=[
+['employeeName','Employee Name'],
+['site','Site'],
+['assessor','Assessor Name']
+];
+for(const [id,label] of requiredFields){
+const field=document.getElementById(id);
+if(!field.value.trim()){
+alert('Please complete '+label+' before submitting.');
+field.focus();
+return;
+}
+}
+const url='https://docs.google.com/forms/d/e/1FAIpQLSc6LobBF21L8aySxavieFWM8mViKLyTvT5ENmeQz7gS08TNNA/viewform?usp=pp_url'
++'&entry.621187689='+encodeURIComponent(document.getElementById('employeeName').value)
++'&entry.1662775296='+encodeURIComponent(document.getElementById('assessmentType').value)
++'&entry.1250435977='+encodeURIComponent(document.getElementById('site').value)
++'&entry.729805916='+encodeURIComponent(document.getElementById('assessor').value)
++'&entry.767272867='+new Date().toISOString().slice(0,10)
++'&entry.1528918085='+encodeURIComponent(document.getElementById('score').textContent.replace('%',''))
++'&entry.219193441='+encodeURIComponent(document.getElementById('developmentFocus').value)
++'&entry.906034061='+encodeURIComponent(document.getElementById('finalComments').value);
+window.open(url,'_blank');
+}
+
+</script>
+</body>
+</html>
