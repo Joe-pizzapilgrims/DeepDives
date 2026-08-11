@@ -1,76 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Pizza Pilgrims Deep Dives</title>
 
 <style>
+
+/* =========================
+   FONT
+========================= */
+
+@font-face {
+    font-family: "PizzaPilgrims";
+    src: url("../PizzaPilgrims.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
 body{
     margin:0;
     min-height:100vh;
-    font-family: "PizzaPilgrims";
-    src: url("../PizzaPilgrims.otf") format("opentype");
+
+    font-family:"PizzaPilgrims", Arial, sans-serif;
+
     color:white;
+
     background:
-        linear-gradient(rgba(18,61,43,.78),rgba(18,61,43,.78)),
-        url("../background.jpg") center/cover no-repeat;
+        linear-gradient(
+            rgba(18,61,43,.78),
+            rgba(18,61,43,.78)
+        ),
+        url("../background.jpg") center / cover no-repeat;
 }
+
+
+/* =========================
+   MAIN PAGE
+========================= */
 
 .page{
     min-height:100vh;
+
     padding:40px 20px;
+
     box-sizing:border-box;
+
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     width:100%;
     max-width:760px;
+
     text-align:center;
 }
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo{
     width:220px;
     max-width:70%;
+
     margin:0 auto 28px;
+
     display:block;
 }
 
+
+/* =========================
+   MAIN TITLE
+========================= */
+
 h1{
     margin:0 0 10px;
+
     font-size:58px;
+
     letter-spacing:2px;
 }
 
+
+/* =========================
+   SUBTITLE
+========================= */
+
 .subtitle{
     margin:0 0 35px;
+
     font-size:21px;
+
     line-height:1.5;
 }
 
+
+/* =========================
+   INFORMATION CARD
+========================= */
+
 .card{
     background:#1f5c3d;
+
     padding:30px;
+
     margin:0 auto 30px;
+
     border-radius:14px;
+
     text-align:left;
+
     box-shadow:0 8px 24px rgba(0,0,0,.18);
 }
 
 .card h2{
     margin:0 0 16px;
+
     padding-bottom:10px;
+
     border-bottom:2px solid white;
+
     font-size:28px;
 }
 
 .card p{
     margin:0 0 16px;
+
     font-size:18px;
+
     line-height:1.6;
 }
 
@@ -78,43 +152,74 @@ h1{
     margin-bottom:0;
 }
 
+
+/* =========================
+   ROLE SECTIONS
+========================= */
+
 .role-section{
     margin-top:35px;
 }
 
 .role-section h2{
     margin-bottom:18px;
+
     font-size:28px;
 }
 
+
+/* =========================
+   ROLE BUTTONS
+========================= */
+
 .role-buttons{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:14px;
 }
 
 .role-button{
     display:block;
+
     background:white;
     color:#123d2b;
+
     text-decoration:none;
+
     padding:18px;
+
     border-radius:10px;
+
     font-size:18px;
     font-weight:bold;
-    transition:transform .2s, background .2s;
+
+    transition:
+        transform .2s,
+        background .2s;
 }
 
 .role-button:hover{
     background:#dcefdc;
+
     transform:translateY(-2px);
 }
 
+
+/* =========================
+   HOME LINK
+========================= */
+
 .home-link{
     display:inline-block;
+
     margin-top:30px;
+
     color:white;
+
     text-decoration:none;
+
     font-weight:bold;
 }
 
@@ -122,7 +227,13 @@ h1{
     text-decoration:underline;
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:650px){
+
     .page{
         padding:25px 16px;
     }
@@ -143,15 +254,30 @@ h1{
         grid-template-columns:1fr;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <main class="page">
+
     <div class="container">
 
-        <img src="../logo.png" class="logo" alt="Pizza Pilgrims">
+
+        <!-- LOGO -->
+
+        <img
+            src="../logo.png"
+            class="logo"
+            alt="Pizza Pilgrims"
+        >
+
+
+        <!-- TITLE -->
 
         <h1>DEEP DIVES</h1>
 
@@ -159,46 +285,135 @@ h1{
             Select your role
         </p>
 
+
+        <!-- INTRODUCTION -->
+
         <section class="card">
+
             <h2>Push Yourself!</h2>
 
             <p>
-                It's great that you're here! Using the Deep Dive to help track your teams development shows great commitment to the Push Yourself value. time to get the espresso out and have a good sit down to go through the current job role. once the perctange mark passes 90% we can start moving onto the next stage - tracking readiness, behaviours and preparing for sign-off. 
+                It's great that you're here! Using the Deep Dive to help track
+                your team's development shows great commitment to the
+                Push Yourself value. Time to get the espresso out and have a
+                good sit down to go through the current job role. Once the
+                percentage mark passes 90% we can start moving onto the next
+                stage - tracking readiness, behaviours and preparing for
+                sign-off.
             </p>
 
             <p>
-                Whether you are just starting your journey or preparing for your
-                next promotion, your Deep Dive is your roadmap to success.
+                Whether you are just starting your journey or preparing for
+                your next promotion, your Deep Dive is your roadmap to success.
             </p>
+
         </section>
 
+
+        <!-- FRONT OF HOUSE -->
+
         <section class="role-section">
+
             <h2>Front of House</h2>
 
             <div class="role-buttons">
-                <a class="role-button" href="waiter.html">Waiter</a>
-                <a class="role-button" href="supervisor.html">Supervisor</a>
-                <a class="role-button" href="AM.html">Assistant Manager</a>
-                <a class="role-button" href="GM.html">General Manager</a>
+
+                <a
+                    class="role-button"
+                    href="waiter.html"
+                >
+                    Waiter
+                </a>
+
+                <a
+                    class="role-button"
+                    href="supervisor.html"
+                >
+                    Supervisor
+                </a>
+
+                <a
+                    class="role-button"
+                    href="AM.html"
+                >
+                    Assistant Manager
+                </a>
+
+                <a
+                    class="role-button"
+                    href="GM.html"
+                >
+                    General Manager
+                </a>
+
             </div>
+
         </section>
 
+
+        <!-- KITCHEN -->
+
         <section class="role-section">
+
             <h2>Kitchen</h2>
 
             <div class="role-buttons">
-                <a class="role-button" href="kpprepchef.html">KP / Prep Chef</a>
-                <a class="role-button" href="pizzachef.html">Pizza Chef</a>
-                <a class="role-button" href="seniorchef.html">Senior Chef</a>
-                <a class="role-button" href="secondchef.html">Second Chef</a>
-                <a class="role-button" href="headchef.html">Head Chef</a>
+
+                <a
+                    class="role-button"
+                    href="kpprepchef.html"
+                >
+                    KP / Prep Chef
+                </a>
+
+                <a
+                    class="role-button"
+                    href="pizzachef.html"
+                >
+                    Pizza Chef
+                </a>
+
+                <a
+                    class="role-button"
+                    href="seniorchef.html"
+                >
+                    Senior Chef
+                </a>
+
+                <a
+                    class="role-button"
+                    href="secondchef.html"
+                >
+                    Second Chef
+                </a>
+
+                <a
+                    class="role-button"
+                    href="headchef.html"
+                >
+                    Head Chef
+                </a>
+
             </div>
+
         </section>
 
-        <a class="home-link" href="../index.html">← Back to language selection</a>
+
+        <!-- BACK -->
+
+        <a
+            class="home-link"
+            href="../index.html"
+        >
+            ← Back to language selection
+        </a>
+
 
     </div>
+
 </main>
 
+
 </body>
+
 </html>
