@@ -29,41 +29,45 @@ jobs:
           ]
 
           behaviours = [
-              ('Taking ownership', ['ownership', 'accountability', 'responsible', 'responsibility', 'standards'],
-               ' Takes ownership of their responsibilities and follows actions through from start to finish.'),
-              ('Thriving under pressure', ['under pressure', 'busy service', 'peak', 'service', 'operational'],
-               ' Thrives under pressure, staying calm, organised and focused on a great guest experience.'),
-              ('Good communicator', ['communication', 'communicates', 'pre-shift', 'guest', 'team'],
-               ' Is a good communicator, adapting their approach clearly and positively to the people around them.'),
-              ('Cares for people', ['coaches', 'coaching', 'development', 'develop', 'team member', 'team'],
-               ' Cares for people by supporting, coaching and helping others to succeed.'),
-              ('Pride & Passion', ['food audit', 'food quality', 'pizza quality', 'product', 'menu', 'pizza'],
+              ('Taking ownership', ['ownership', 'accountability', 'responsible', 'responsibility', 'standards', 'checks', 'clean'],
+               ' Demonstrates Taking ownership by following responsibilities and actions through from start to finish.'),
+              ('Thriving under pressure', ['under pressure', 'busy service', 'busy', 'peak', 'service', 'operational', 'pace'],
+               ' Shows Thriving under pressure by staying calm, organised and focused on a great guest experience.'),
+              ('Good communicator', ['communication', 'communicates', 'communicate', 'pre-shift', 'guest', 'team'],
+               ' Acts as a Good communicator, adapting their approach clearly and positively to the people around them.'),
+              ('Cares for people', ['coaches', 'coaching', 'development', 'develop', 'support', 'team member', 'team', 'guest'],
+               ' Demonstrates our Cares for people behaviour by supporting, coaching and helping others to succeed.'),
+              ('Pride & Passion', ['food audit', 'food quality', 'pizza quality', 'product', 'menu', 'pizza', 'quality', 'dough'],
                ' Showcases Pride & Passion for our products by protecting quality and sharing what makes them special.'),
-              ('Curiosity and drive', ['commercial', 'business', 'sales', 'profit', 'KPI', 'targets'],
-               ' Shows curiosity and drive by looking for ways to positively impact the commercial success of the business.'),
+              ('Curiosity and drive', ['commercial', 'business', 'sales', 'profit', 'kpi', 'targets', 'waste', 'stock', 'improve', 'opportunities'],
+               ' Shows Curiosity and drive by looking for ways to positively impact the commercial success of the business.'),
           ]
 
           string_re = re.compile(r'"((?:[^"\\]|\\.)*)"')
+          behaviour_labels = [label.lower() for label, _, _ in behaviours]
 
           for path in files:
               text = path.read_text(encoding='utf-8')
               original = text
-              used_spans = []
 
               for label, keywords, addition in behaviours:
                   if label.lower() in text.lower():
                       continue
-                  matches = list(string_re.finditer(text))
+
                   chosen = None
+                  matches = list(string_re.finditer(text))
                   for keyword in keywords:
                       for m in matches:
                           value = m.group(1)
                           low = value.lower()
-                          if keyword.lower() in low and len(value) > 35 and not any(a <= m.start() < b for a,b in used_spans):
+                          if any(existing in low for existing in behaviour_labels):
+                              continue
+                          if keyword.lower() in low and len(value) > 35:
                               chosen = m
                               break
                       if chosen:
                           break
+
                   if not chosen:
                       raise RuntimeError(f'No suitable line found for {label} in {path}')
 
@@ -72,10 +76,10 @@ jobs:
                       value = value[:-1]
                   replacement = '"' + value + '.' + addition.replace('"','\\"') + '"'
                   text = text[:chosen.start()] + replacement + text[chosen.end():]
-                  used_spans.append((chosen.start(), chosen.start() + len(replacement)))
 
               for label, _, _ in behaviours:
-                  if label.lower() not in text.lower():
+                  count = text.lower().count(label.lower())
+                  if count < 1:
                       raise RuntimeError(f'{label} missing after update in {path}')
 
               if text == original:
