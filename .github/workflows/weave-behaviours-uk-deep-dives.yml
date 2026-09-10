@@ -50,17 +50,20 @@ jobs:
           for path in files:
               text = path.read_text(encoding='utf-8')
 
-              # Remove any previous automated behaviour additions before rebuilding cleanly.
               for addition in additions:
                   text = text.replace(addition, '')
 
               start = text.find('const data =')
               if start == -1:
                   raise RuntimeError(f'Could not find Deep Dive data block in {path}')
-              end = text.find('\n};', start)
+
+              function_start = text.find('function ', start)
+              if function_start == -1:
+                  raise RuntimeError(f'Could not find first function after data block in {path}')
+              end = text.rfind('};', start, function_start)
               if end == -1:
                   raise RuntimeError(f'Could not find end of Deep Dive data block in {path}')
-              end += 3
+              end += 2
 
               before = text[:start]
               data = text[start:end]
