@@ -1,0 +1,91 @@
+name: Weave behaviours into UK Deep Dives
+
+on:
+  push:
+    paths:
+      - '.github/workflows/weave-behaviours-uk-deep-dives.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-deep-dives:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Weave behaviour language into existing responsibilities
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          files = [
+              Path('english/AM.html'), Path('english/GM.html'), Path('english/headchef.html'),
+              Path('english/kpprepchef.html'), Path('english/pizzachef.html'), Path('english/secondchef.html'),
+              Path('english/seniorchef.html'), Path('english/supervisor.html'), Path('english/waiter.html')
+          ]
+
+          behaviours = [
+              ('Taking ownership', ['ownership', 'accountability', 'responsible', 'responsibility', 'standards'],
+               ' Takes ownership of their responsibilities and follows actions through from start to finish.'),
+              ('Thriving under pressure', ['under pressure', 'busy service', 'peak', 'service', 'operational'],
+               ' Thrives under pressure, staying calm, organised and focused on a great guest experience.'),
+              ('Good communicator', ['communication', 'communicates', 'pre-shift', 'guest', 'team'],
+               ' Is a good communicator, adapting their approach clearly and positively to the people around them.'),
+              ('Cares for people', ['coaches', 'coaching', 'development', 'develop', 'team member', 'team'],
+               ' Cares for people by supporting, coaching and helping others to succeed.'),
+              ('Pride & Passion', ['food audit', 'food quality', 'pizza quality', 'product', 'menu', 'pizza'],
+               ' Showcases Pride & Passion for our products by protecting quality and sharing what makes them special.'),
+              ('Curiosity and drive', ['commercial', 'business', 'sales', 'profit', 'KPI', 'targets'],
+               ' Shows curiosity and drive by looking for ways to positively impact the commercial success of the business.'),
+          ]
+
+          string_re = re.compile(r'"((?:[^"\\]|\\.)*)"')
+
+          for path in files:
+              text = path.read_text(encoding='utf-8')
+              original = text
+              used_spans = []
+
+              for label, keywords, addition in behaviours:
+                  if label.lower() in text.lower():
+                      continue
+                  matches = list(string_re.finditer(text))
+                  chosen = None
+                  for keyword in keywords:
+                      for m in matches:
+                          value = m.group(1)
+                          low = value.lower()
+                          if keyword.lower() in low and len(value) > 35 and not any(a <= m.start() < b for a,b in used_spans):
+                              chosen = m
+                              break
+                      if chosen:
+                          break
+                  if not chosen:
+                      raise RuntimeError(f'No suitable line found for {label} in {path}')
+
+                  value = chosen.group(1).rstrip()
+                  if value.endswith('.'):
+                      value = value[:-1]
+                  replacement = '"' + value + '.' + addition.replace('"','\\"') + '"'
+                  text = text[:chosen.start()] + replacement + text[chosen.end():]
+                  used_spans.append((chosen.start(), chosen.start() + len(replacement)))
+
+              for label, _, _ in behaviours:
+                  if label.lower() not in text.lower():
+                      raise RuntimeError(f'{label} missing after update in {path}')
+
+              if text == original:
+                  raise RuntimeError(f'No changes made to {path}')
+              path.write_text(text, encoding='utf-8')
+
+      - name: Commit UK Deep Dive behaviour updates
+        run: |
+          git config user.name "OpenAI ChatGPT"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add english/*.html
+          git commit -m "Weave development behaviours into UK Deep Dives"
+          git push origin main
