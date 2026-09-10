@@ -57,7 +57,7 @@ jobs:
               if start == -1:
                   raise RuntimeError(f'Could not find Deep Dive data block in {path}')
 
-              function_start = text.find('function ', start)
+              function_start = text.find('\nfunction ', start)
               if function_start == -1:
                   raise RuntimeError(f'Could not find first function after data block in {path}')
               end = text.rfind('};', start, function_start)
