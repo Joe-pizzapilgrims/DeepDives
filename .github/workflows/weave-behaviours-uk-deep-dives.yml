@@ -29,33 +29,46 @@ jobs:
           ]
 
           behaviours = [
-              ('Taking ownership', ['ownership', 'accountability', 'responsible', 'responsibility', 'standards', 'checks', 'clean'],
+              ('Taking ownership', ['ownership', 'accountability', 'responsibility', 'responsible', 'standards', 'checks'],
                ' Demonstrates Taking ownership by following responsibilities and actions through from start to finish.'),
-              ('Thriving under pressure', ['under pressure', 'busy service', 'busy', 'peak', 'service', 'operational', 'pace'],
+              ('Thriving under pressure', ['under pressure', 'busy services', 'busy service', 'busy periods', 'busy', 'peak', 'service'],
                ' Shows Thriving under pressure by staying calm, organised and focused on a great guest experience.'),
-              ('Good communicator', ['communication', 'communicates', 'communicate', 'pre-shift', 'guest', 'team'],
+              ('Good communicator', ['communication', 'communicates', 'communicate', 'pre-shift', 'team'],
                ' Acts as a Good communicator, adapting their approach clearly and positively to the people around them.'),
-              ('Cares for people', ['coaches', 'coaching', 'development', 'develop', 'support', 'team member', 'team', 'guest'],
+              ('Cares for people', ['coaches', 'coaching', 'development', 'develop', 'supports', 'support', 'team member', 'teammates', 'team'],
                ' Demonstrates our Cares for people behaviour by supporting, coaching and helping others to succeed.'),
               ('Pride & Passion', ['food audit', 'food quality', 'pizza quality', 'product', 'menu', 'pizza', 'quality', 'dough'],
                ' Showcases Pride & Passion for our products by protecting quality and sharing what makes them special.'),
-              ('Curiosity and drive', ['commercial', 'business', 'sales', 'profit', 'kpi', 'targets', 'waste', 'stock', 'improve', 'opportunities'],
+              ('Curiosity and drive', ['commercial', 'business', 'sales', 'profit', 'kpi', 'targets', 'waste', 'stock', 'cost', 'opportunities'],
                ' Shows Curiosity and drive by looking for ways to positively impact the commercial success of the business.'),
           ]
 
           string_re = re.compile(r'"((?:[^"\\]|\\.)*)"')
           behaviour_labels = [label.lower() for label, _, _ in behaviours]
+          additions = [addition for _, _, addition in behaviours]
 
           for path in files:
               text = path.read_text(encoding='utf-8')
-              original = text
+
+              # Remove any previous automated behaviour additions before rebuilding cleanly.
+              for addition in additions:
+                  text = text.replace(addition, '')
+
+              start = text.find('const data =')
+              if start == -1:
+                  raise RuntimeError(f'Could not find Deep Dive data block in {path}')
+              end = text.find('\n};', start)
+              if end == -1:
+                  raise RuntimeError(f'Could not find end of Deep Dive data block in {path}')
+              end += 3
+
+              before = text[:start]
+              data = text[start:end]
+              after = text[end:]
 
               for label, keywords, addition in behaviours:
-                  if label.lower() in text.lower():
-                      continue
-
                   chosen = None
-                  matches = list(string_re.finditer(text))
+                  matches = list(string_re.finditer(data))
                   for keyword in keywords:
                       for m in matches:
                           value = m.group(1)
@@ -69,27 +82,28 @@ jobs:
                           break
 
                   if not chosen:
-                      raise RuntimeError(f'No suitable line found for {label} in {path}')
+                      raise RuntimeError(f'No suitable responsibility found for {label} in {path}')
 
                   value = chosen.group(1).rstrip()
                   if value.endswith('.'):
                       value = value[:-1]
                   replacement = '"' + value + '.' + addition.replace('"','\\"') + '"'
-                  text = text[:chosen.start()] + replacement + text[chosen.end():]
+                  data = data[:chosen.start()] + replacement + data[chosen.end():]
+
+              rebuilt = before + data + after
 
               for label, _, _ in behaviours:
-                  count = text.lower().count(label.lower())
-                  if count < 1:
-                      raise RuntimeError(f'{label} missing after update in {path}')
+                  if data.lower().count(label.lower()) != 1:
+                      raise RuntimeError(f'Expected exactly one {label} mention in Deep Dive content for {path}')
+                  if label.lower() in before.lower() or label.lower() in after.lower():
+                      raise RuntimeError(f'{label} appeared outside Deep Dive content in {path}')
 
-              if text == original:
-                  raise RuntimeError(f'No changes made to {path}')
-              path.write_text(text, encoding='utf-8')
+              path.write_text(rebuilt, encoding='utf-8')
 
       - name: Commit UK Deep Dive behaviour updates
         run: |
           git config user.name "OpenAI ChatGPT"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add english/*.html
-          git commit -m "Weave development behaviours into UK Deep Dives"
+          git commit -m "Refine behaviour language in UK Deep Dives"
           git push origin main
