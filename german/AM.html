@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deep Dive - Stellvertretender Restaurantleiter</title>
+<title>Deep Dive - Assistant Manager</title>
 <style>
 body{
 margin:0;
@@ -113,7 +113,7 @@ border:1px solid #aaa;
 </head>
 <body>
 <section class="page front">
-<img src="../logo.png" class="logo" alt="Pizza Pilgrims logo">
+<img src="../logo.png" class="logo" alt="Logo von Pizza Pilgrims">
 <h1>DEEP DIVE</h1>
 <h2>ASSISTANT MANAGER</h2>
 <div class="card">
@@ -135,7 +135,7 @@ Dieses Dokument kann als Momentaufnahme oder Arbeitsdokument genutzt werden. Dru
 <label>Name</label>
 <input type="text">
 <label>Rolle</label>
-<input type="text" value="Stellvertretender Restaurantleiter">
+<input type="text" value="Assistant Manager">
 <label>Standort</label>
 <input type="text">
 <label>Vorgesetzter</label>
@@ -172,150 +172,150 @@ Dieses Dokument kann als Momentaufnahme oder Arbeitsdokument genutzt werden. Dru
 <button onclick="resetForm()">Zurücksetzen</button>
 </div>
 <div class="card">
-<h2>Kommentare des Managers</h2>
-<textarea placeholder="Stärken, Beobachtungen und Coaching-Kommentare..."></textarea>
+<h2>Kommentare der Führungskraft</h2>
+<textarea placeholder="Stärken, Beobachtungen und Hinweise zur Weiterentwicklung..."></textarea>
 </div>
 <div class="card">
 <h2>Nächste Schritte</h2>
-<textarea placeholder="Vereinbarte Maßnahmen, Trainingsprioritäten und Folgetermine..."></textarea>
+<textarea placeholder="Vereinbarte Maßnahmen, Schulungsschwerpunkte und Folgetermine..."></textarea>
 </div>
 </section>
 <script>
 const data = {
-section1: {
-"Health and Safety": [
-"Carries out regular walk-arounds of the kitchen and restaurant to ensure they remain clean, safe and legally compliant.",
-"Takes full ownership of the Food Alert audits, communicating results, priorities and action plans with the management team and wider team.",
-"Understands audit scores in detail, delegates actions effectively and ensures all issues are resolved promptly.",
-"Ensures the pizzeria is consistently clean, safe and legal, in line with our HACCP guidelines.",
-"Ensures daily checks of shelf lives and product labelling are completed.",
-"Coaches the team on correct procedures and identifies any falsified or extended shelf lives immediately.",
-"Regularly reviews compliance records within the Food Safety Monitoring System and reviews HACCP plans annually.",
-"Investigates and deals appropriately with any inaccurate or falsified temperature records.",
-"Demonstrates expert knowledge of HACCP principles, food safety procedures and compliance recording.",
-"Ensures all COSHH procedures are followed correctly.",
-"Ensures every team member is fully trained and compliant.",
-"Ensures every new team member completes all required risk assessments during induction and completes their All Gravy compliance within the required timeframe.",
-"Creates a culture where safety is prioritised across both FOH and BOH.",
-"Coaches managers and team members to prevent accidents and maintain excellent standards.",
-"Proactively reports, manages and follows through on all equipment and maintenance issues via the Maintenance Portal.",
-"Ensures the building is maintained to the highest possible standard inside and out.",
-"Builds effective relationships with maintenance engineers and contractors.",
-"Ensures the FOH and BOH teams consistently check deliveries for quality, quantity and temperature.",
-"Works closely with suppliers, partners and the Food Team to resolve any issues.",
-"Demonstrates complete understanding of the allergy procedure from beginning to end.",
-"Ensures every member of the team confidently follows allergy procedures through training, coaching and due diligence.",
-"Reviews pest control reports and ensures all findings are actioned promptly.",
-"Communicates actions effectively with the management team and ensures preventative measures remain in place.",
-"Demonstrates how to complete all daily and weekly fire safety checks and testing.",
-"Ensures every team member understands fire safety procedures, evacuation routes and assembly points.",
-"Conducts and records regular fire evacuation drills every six months.",
-"Ensures all daily compliance checks are completed accurately and on time in Trail.",
-"Delegates responsibilities appropriately while maintaining overall accountability.",
-"Regularly reviews compliance records to protect both guests and team members."
-]
-},
-section2: {
-"All About Service, Guest Experience & Pizza Quality": [
-"Creates a culture of excellence where every pizza and every guest experience reflects Pizza Pilgrims’ standards.",
-"Drives exceptional performance across both FOH and BOH every single shift."
-],
-"Be the Pizza Expert": [
-"Is the leading expert on every aspect of the menu, including food, drinks, wines, beers, cocktails and coffee.",
-"Conducts regular food audits to promote coaching and development around our menu.",
-"Plans ahead for menu launches, ensuring stock, training and tastings are delivered successfully across the whole team.",
-"Ensures every pizza leaving the kitchen meets specification and quality expectations.",
-"Coaches managers and chefs to continually improve consistency and standards."
-],
-"Controlling the Pass / Service": [
-"Maintains excellent communication between kitchen and floor teams.",
-"Ensures food leaves the kitchen at the correct time, temperature and presentation standard.",
-"Creates calm, organised and efficient service under pressure."
-],
-"Pre-Shift": [
-"Delivers engaging, educational and informative pre-shift meetings.",
-"Clearly communicates daily priorities, commercial goals and daily focuses."
-],
-"Everyone's a Host": [
-"Oversees bookings to maximise covers while protecting the guest experience.",
-"Uses booking data to optimise staffing, pacing and operational efficiency.",
-"Ensures every guest receives an exceptional welcome."
-],
-"Drinks": [
-"Maintains expert knowledge of the drinks menu and specifications.",
-"Ensures consistent quality across all beverage preparation."
-],
-"Resolving Guest Complaints": [
-"Handles complex guest concerns professionally and confidently.",
-"Monitors and maintains the restaurant email inbox and manages any complaint issues that may come through."
-],
-"Super Kind Bombs!": [
-"Creates memorable guest experiences through thoughtful and unexpected acts of generosity.",
-"Encourages the whole team to recognise opportunities to delight guests."
-],
-"One Team, One Dream": [
-"Builds an engaged, motivated and high-performing team.",
-"Protects and develops the Pizza Pilgrims culture.",
-"Leads by example every day.",
-"Demonstrates exceptional communication across all levels of the business.",
-"Builds strong relationships with teams, other pizzerias and Pizza Base."
-]
-},
-section3: {
-"Communication": [
-"Adapts communication style to different audiences, including guests, team members, senior leaders and external partners."
-],
-"Systems": [
-"Is an expert user of all operational systems, including tills, card machines, Sona, Zonal, booking platforms and Deliveroo.",
-"Ensures managers and team members are fully trained on all systems."
-],
-"Pizzeria Operations": [
-"Understands how to support the General Manager in all aspects of FOH operations.",
-"Confidently supports every department whenever required.",
-"Maintains exceptional operational standards across every service."
-],
-"Recruitment & Development": [
-"Follows the Pizza Pilgrims standard recruitment model using the correct platforms.",
-"Ensures the recruitment process is compliant with UK legal standards.",
-"Is an expert in Pilgrims Pathways, The Academy and other tools used to develop our teams."
-],
-"ER & HR": [
-"Demonstrates a strong understanding of UK employment law and company people policies, ensuring all team members are managed fairly, consistently and legally."
-]
-},
-section4: {
-"The Pilgrimage": [
-"Understands the story of the original Pilgrimage and Pilgrimage 2.0.",
-"Knows the founders, their journey and their vision.",
-"Understands the company purpose, pillars, B Corp certification and the reasons behind how Pizza Pilgrims operates."
-],
-"The Product": [
-"Demonstrates expert knowledge of dough, recipes and specifications.",
-"Has a strong understanding of ingredient provenance and supplier stories.",
-"Has strong knowledge of wines, cocktails, beers, soft drinks, coffee and all product specifications."
-],
-"The People": [
-"Understands the Pizza Base support functions and how they help pizzerias succeed.",
-"Understands the purpose of The Academy and actively promotes team development."
-]
-},
-section5: {
-"The Business": [
-"Understands the commercial performance of the restaurant.",
-"Knows how labour, sales, food quality, guest experience and profitability all contribute to success.",
-"Supports the General Manager in delivering commercial objectives."
-],
-"Delivery": [
-"Understands Deliveroo KPIs.",
-"Has good knowledge of all off-site delivery and catering opportunities in the local area.",
-"Supports the General Manager and Head Chef in achieving operational and commercial targets."
-],
-"Reviews": [
-"Understands the importance of guest feedback.",
-"Can lead the team to achieve the company’s target for Google reviews and sentiment.",
-"Knows weekly review targets, expected scores and how to coach the team to improve guest satisfaction."
-]
-}
+  "section1": {
+    "Gesundheit und Sicherheit": [
+      "Führt regelmäßig Kontrollrundgänge durch Küche und Restaurant durch, um Sauberkeit, Sicherheit und die Einhaltung gesetzlicher Vorgaben sicherzustellen.",
+      "Übernimmt die volle Verantwortung für die Food Alert-Audits und kommuniziert Ergebnisse, Prioritäten und Maßnahmenpläne an das Führungsteam und das gesamte Team.",
+      "Versteht die Auditergebnisse im Detail, delegiert Maßnahmen wirksam und stellt sicher, dass alle Probleme zeitnah behoben werden.",
+      "Stellt sicher, dass die Pizzeria gemäß unseren HACCP-Richtlinien jederzeit sauber und sicher ist und die gesetzlichen Vorgaben erfüllt.",
+      "Stellt sicher, dass Haltbarkeitsfristen und Produktkennzeichnungen täglich kontrolliert werden.",
+      "Schult das Team in den korrekten Abläufen und erkennt verfälschte oder verlängerte Haltbarkeitsangaben sofort.",
+      "Prüft regelmäßig die Nachweise im System zur Überwachung der Lebensmittelsicherheit und überprüft die HACCP-Pläne jährlich.",
+      "Untersucht fehlerhafte oder gefälschte Temperaturaufzeichnungen und ergreift angemessene Maßnahmen.",
+      "Verfügt über fundiertes Fachwissen zu HACCP-Grundsätzen, Lebensmittelsicherheitsverfahren und der Dokumentation der Einhaltung von Vorschriften.",
+      "Stellt sicher, dass alle COSHH-Verfahren zum Umgang mit gesundheitsgefährdenden Stoffen korrekt eingehalten werden.",
+      "Stellt sicher, dass jedes Teammitglied umfassend geschult ist und die Vorschriften einhält.",
+      "Stellt sicher, dass jedes neue Teammitglied während der Einarbeitung alle erforderlichen Gefährdungsbeurteilungen durchläuft und die vorgeschriebenen Schulungen in All Gravy fristgerecht abschließt.",
+      "Schafft eine Kultur, in der Sicherheit sowohl im Service als auch in der Küche Vorrang hat.",
+      "Schult Führungskräfte und Teammitglieder, um Unfälle zu vermeiden und ausgezeichnete Standards aufrechtzuerhalten.",
+      "Meldet und bearbeitet Geräte- und Wartungsprobleme vorausschauend über das Wartungsportal und verfolgt sie bis zur Behebung nach.",
+      "Stellt sicher, dass das Gebäude innen und außen in bestmöglichem Zustand gehalten wird.",
+      "Baut gute Arbeitsbeziehungen zu Wartungstechnikern und externen Dienstleistern auf.",
+      "Stellt sicher, dass die Service- und Küchenteams Lieferungen konsequent auf Qualität, Menge und Temperatur prüfen.",
+      "Arbeitet eng mit Lieferanten, Partnern und dem Food Team zusammen, um Probleme zu lösen.",
+      "Versteht den gesamten Ablauf für den Umgang mit Allergien von Anfang bis Ende.",
+      "Stellt durch Schulung, Anleitung und sorgfältige Kontrollen sicher, dass jedes Teammitglied die Abläufe zum Umgang mit Allergien sicher befolgt.",
+      "Prüft Schädlingsbekämpfungsberichte und stellt sicher, dass auf alle Feststellungen zeitnah reagiert wird.",
+      "Kommuniziert Maßnahmen klar an das Führungsteam und stellt sicher, dass vorbeugende Maßnahmen dauerhaft umgesetzt werden.",
+      "Kann zeigen, wie alle täglichen und wöchentlichen Brandschutzkontrollen und Funktionstests durchgeführt werden.",
+      "Stellt sicher, dass jedes Teammitglied die Brandschutzverfahren, Fluchtwege und Sammelstellen kennt.",
+      "Führt alle sechs Monate eine Evakuierungsübung durch und dokumentiert sie.",
+      "Stellt sicher, dass alle täglichen Kontrollen zur Einhaltung der Vorschriften korrekt und pünktlich in Trail abgeschlossen werden.",
+      "Delegiert Aufgaben angemessen und behält dabei die Gesamtverantwortung.",
+      "Prüft regelmäßig die Nachweise zur Einhaltung der Vorschriften, um Gäste und Teammitglieder zu schützen."
+    ]
+  },
+  "section2": {
+    "Alles rund um Service, Gästeerlebnis und Pizzaqualität": [
+      "Schafft eine Kultur höchster Qualität, in der jede Pizza und jedes Gästeerlebnis den Standards von Pizza Pilgrims entspricht.",
+      "Sorgt in jeder Schicht für herausragende Leistungen im Service und in der Küche."
+    ],
+    "Pizza-Fachwissen": [
+      "Ist die erste Ansprechperson für alle Aspekte der Speisekarte und des Getränkeangebots, einschließlich Speisen, Getränken, Weinen, Bieren, Cocktails und Kaffee.",
+      "Führt regelmäßig Qualitätsprüfungen der Speisen durch, um Schulung und Weiterentwicklung rund um unsere Speisekarte zu fördern.",
+      "Plant die Einführung neuer Speisekarten vorausschauend und stellt sicher, dass Warenbestände, Schulungen und Verkostungen für das gesamte Team erfolgreich organisiert werden.",
+      "Stellt sicher, dass jede Pizza, die die Küche verlässt, den Vorgaben und Qualitätsanforderungen entspricht.",
+      "Unterstützt Führungskräfte und Köche dabei, gleichbleibende Qualität und Standards kontinuierlich zu verbessern."
+    ],
+    "Koordination an der Ausgabe und im Service": [
+      "Sorgt für eine ausgezeichnete Kommunikation zwischen Küchen- und Serviceteam.",
+      "Stellt sicher, dass Speisen zum richtigen Zeitpunkt, mit der richtigen Temperatur und entsprechend den Präsentationsstandards die Küche verlassen.",
+      "Sorgt auch unter Druck für einen ruhigen, organisierten und effizienten Service."
+    ],
+    "Schichtbesprechung": [
+      "Führt motivierende und informative Schichtbesprechungen durch, die Wissen vermitteln.",
+      "Kommuniziert die Prioritäten, wirtschaftlichen Ziele und Schwerpunkte des Tages klar."
+    ],
+    "Wir alle sind Gastgeber": [
+      "Steuert Reservierungen so, dass möglichst viele Gäste bewirtet werden können, ohne das Gästeerlebnis zu beeinträchtigen.",
+      "Nutzt Reservierungsdaten, um Personalbesetzung, zeitliche Abläufe und betriebliche Effizienz zu optimieren.",
+      "Stellt sicher, dass jeder Gast außergewöhnlich herzlich begrüßt wird."
+    ],
+    "Getränke": [
+      "Verfügt über fundiertes Fachwissen zur Getränkekarte und zu den Zubereitungsvorgaben.",
+      "Stellt bei der Zubereitung aller Getränke eine gleichbleibend hohe Qualität sicher."
+    ],
+    "Umgang mit Gästebeschwerden": [
+      "Geht professionell und souverän mit komplexen Gästeanliegen um.",
+      "Betreut das E-Mail-Postfach des Restaurants und kümmert sich um eingehende Beschwerden."
+    ],
+    "Besondere Gesten der Freundlichkeit": [
+      "Schafft durch aufmerksame und unerwartete Gesten der Großzügigkeit unvergessliche Gästeerlebnisse.",
+      "Ermutigt das gesamte Team, Gelegenheiten zu erkennen, um Gäste zu begeistern."
+    ],
+    "Ein Team, ein Traum": [
+      "Baut ein engagiertes, motiviertes und leistungsstarkes Team auf.",
+      "Bewahrt und entwickelt die Unternehmenskultur von Pizza Pilgrims weiter.",
+      "Geht jeden Tag mit gutem Beispiel voran.",
+      "Kommuniziert auf allen Ebenen des Unternehmens ausgezeichnet.",
+      "Baut starke Beziehungen zu den Teams, anderen Pizzerien und Pizza Base auf."
+    ]
+  },
+  "section3": {
+    "Kommunikation": [
+      "Passt den Kommunikationsstil an unterschiedliche Zielgruppen an, darunter Gäste, Teammitglieder, leitende Führungskräfte und externe Partner."
+    ],
+    "Systeme": [
+      "Beherrscht alle betrieblichen Systeme sicher, einschließlich Kassen, Kartenterminals, Sona, Zonal, Reservierungsplattformen und Deliveroo.",
+      "Stellt sicher, dass Führungskräfte und Teammitglieder umfassend in allen Systemen geschult sind."
+    ],
+    "Betrieb der Pizzeria": [
+      "Versteht, wie der General Manager in allen Bereichen des Servicebetriebs unterstützt werden kann.",
+      "Unterstützt bei Bedarf jede Abteilung souverän.",
+      "Hält in jedem Service herausragende betriebliche Standards aufrecht."
+    ],
+    "Personalgewinnung und Entwicklung": [
+      "Befolgt das standardisierte Einstellungsverfahren von Pizza Pilgrims und nutzt die dafür vorgesehenen Plattformen.",
+      "Stellt sicher, dass das Einstellungsverfahren den gesetzlichen Vorgaben des Vereinigten Königreichs entspricht.",
+      "Kennt sich bestens mit Pilgrims Pathways, The Academy und weiteren Instrumenten zur Entwicklung unserer Teams aus."
+    ],
+    "Mitarbeiterbeziehungen und Personalmanagement": [
+      "Verfügt über ein fundiertes Verständnis des Arbeitsrechts im Vereinigten Königreich und der Personalrichtlinien des Unternehmens und stellt sicher, dass alle Teammitglieder fair, einheitlich und rechtskonform geführt werden."
+    ]
+  },
+  "section4": {
+    "Die Pilgrimage": [
+      "Kennt die Geschichte der ursprünglichen Pilgrimage und der Pilgrimage 2.0.",
+      "Kennt die Gründer, ihren Weg und ihre Vision.",
+      "Versteht den Unternehmenszweck, die tragenden Säulen, die B Corp-Zertifizierung und die Gründe für die Arbeitsweise von Pizza Pilgrims."
+    ],
+    "Das Produkt": [
+      "Verfügt über fundiertes Fachwissen zu Teig, Rezepturen und Zubereitungsvorgaben.",
+      "Kennt die Herkunft der Zutaten und die Geschichten unserer Lieferanten.",
+      "Verfügt über umfassendes Wissen zu Weinen, Cocktails, Bieren, alkoholfreien Getränken, Kaffee und allen Produktvorgaben."
+    ],
+    "Die Menschen": [
+      "Versteht die unterstützenden Funktionen von Pizza Base und wie sie zum Erfolg der Pizzerien beitragen.",
+      "Versteht den Zweck von The Academy und fördert aktiv die Entwicklung des Teams."
+    ]
+  },
+  "section5": {
+    "Das Geschäft": [
+      "Versteht die wirtschaftliche Leistung des Restaurants.",
+      "Weiß, wie Personaleinsatz, Umsatz, Speisenqualität, Gästeerlebnis und Rentabilität zum Erfolg beitragen.",
+      "Unterstützt den General Manager bei der Erreichung wirtschaftlicher Ziele."
+    ],
+    "Lieferservice": [
+      "Versteht die Leistungskennzahlen von Deliveroo.",
+      "Kennt die Möglichkeiten für Lieferungen und Catering außerhalb der Pizzeria im lokalen Umfeld gut.",
+      "Unterstützt den General Manager und den Küchenchef bei der Erreichung betrieblicher und wirtschaftlicher Ziele."
+    ],
+    "Bewertungen": [
+      "Versteht die Bedeutung von Gästerückmeldungen.",
+      "Kann das Team dabei anleiten, die Unternehmensziele für Google-Bewertungen und deren Gesamtstimmung zu erreichen.",
+      "Kennt die wöchentlichen Bewertungsziele, die erwarteten Bewertungsnoten und weiß, wie das Team angeleitet werden kann, um die Gästezufriedenheit zu verbessern."
+    ]
+  }
 };
 function buildSection(sectionId){
 const container = document.getElementById(sectionId);
